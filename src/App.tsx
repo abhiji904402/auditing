@@ -2433,37 +2433,55 @@ const HistoryPanelComponent = React.memo(({
     if (confirm(`Are you sure you want to delete the selected (${count}) history logs?`)) {
       try {
         if (activeHistoryTab === 'current') {
-          // 1. Delete from Firestore first
-          for (const date of selectedDates) {
-            for (const outlet of OUTLETS) {
-              await deleteDoc(doc(db, DAILY_RECORDS_COL, `${date}_${outlet.id}`));
-            }
-            await deleteDoc(doc(db, DAILY_RECORDS_COL, date));
-          }
-
-          // 2. Clear from local storage and update local state after successful cloud deletion
+          // 1. Clear from local storage and update local state first for instant snappy response
           setRecords((prev: any) => {
             const newRecs = { ...prev };
             selectedDates.forEach(d => delete newRecs[d]);
             localStorage.setItem('broomies_db_daily_records_v2', JSON.stringify(newRecs));
+            localStorage.setItem('broomies_app_data_fallback_v2', JSON.stringify(newRecs));
             return newRecs;
           });
-        } else {
-          // 1. Delete from legacy Firestore first
+
+          // 2. Delete from Firestore safely (per-document try-catch so individual failures don't block others)
           for (const date of selectedDates) {
             for (const outlet of OUTLETS) {
-              await deleteDoc(doc(db, DAILY_RECORDS_OLD_COL, `${date}_${outlet.id}`));
+              try {
+                await deleteDoc(doc(db, DAILY_RECORDS_COL, `${date}_${outlet.id}`));
+              } catch (e) {
+                console.error(`Failed to delete Firestore outlet doc ${date}_${outlet.id}:`, e);
+              }
             }
-            await deleteDoc(doc(db, DAILY_RECORDS_OLD_COL, date));
+            try {
+              await deleteDoc(doc(db, DAILY_RECORDS_COL, date));
+            } catch (e) {
+              console.error(`Failed to delete Firestore kitchen batch doc ${date}:`, e);
+            }
           }
-
-          // 2. Clear from local storage and update local state after successful cloud deletion
+        } else {
+          // 1. Clear from local storage and update local state first
           setOldRecords((prev: any) => {
             const newRecs = { ...prev };
             selectedDates.forEach(d => delete newRecs[d]);
             localStorage.setItem('broomies_db_daily_records', JSON.stringify(newRecs));
+            localStorage.setItem('broomies_app_data_fallback', JSON.stringify(newRecs));
             return newRecs;
           });
+
+          // 2. Delete from legacy Firestore safely
+          for (const date of selectedDates) {
+            for (const outlet of OUTLETS) {
+              try {
+                await deleteDoc(doc(db, DAILY_RECORDS_OLD_COL, `${date}_${outlet.id}`));
+              } catch (e) {
+                console.error(`Failed to delete legacy Firestore outlet doc ${date}_${outlet.id}:`, e);
+              }
+            }
+            try {
+              await deleteDoc(doc(db, DAILY_RECORDS_OLD_COL, date));
+            } catch (e) {
+              console.error(`Failed to delete legacy Firestore kitchen batch doc ${date}:`, e);
+            }
+          }
         }
 
         if (addNotification) {
@@ -2472,7 +2490,7 @@ const HistoryPanelComponent = React.memo(({
       } catch (e: any) {
         console.error("Purge history failed:", e);
         if (addNotification) {
-          addNotification(`FAILED TO PURGE HISTORY: ${e.message || 'Firestore error'}`, 'error');
+          addNotification(`FAILED TO PURGE HISTORY: ${e.message || 'Error'}`, 'error');
         }
       } finally {
         setSelectedDates([]);
