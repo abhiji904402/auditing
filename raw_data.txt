@@ -1,0 +1,1287 @@
+SEC 31 DATA :
+Date ITEM NAME Open Recv O.Rec Sold Test Waste CLOSING
+20-Jun-2026 chocolate truffle 1/2kg 2 0 0 3 0 0 1
+20-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 1 0
+20-Jun-2026 Pineapple 1/2 Kg 1 0 0 2 0 0 0
+20-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 1 0 0 1
+20-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 1 0
+20-Jun-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 0 1
+20-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 1 0
+20-Jun-2026 Tiramisu 1/2 Kg 0 1 0 0 0 0 1
+20-Jun-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+20-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+20-Jun-2026 Classic Pineapple Pastry 2 1 0 3 0 0 0
+20-Jun-2026 Black Forest Pastry 1 1 0 0 0 0 2
+20-Jun-2026 Chocolate Truffle Pastry 3 3 0 4 0 0 2
+20-Jun-2026 Red Velvet Pastry 1 0 0 0 0 1 0
+20-Jun-2026 Blueberry Pastry 2 1 0 1 0 0 2
+20-Jun-2026 Rainbow Pastry 1 2 0 2 0 0 1
+20-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 1 0
+20-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+21-Jun-2026 chocolate truffle 1/2kg 1 2 0 2 0 0 1
+21-Jun-2026 Chocolate Truffle 1 Kg 0 1 0 0 0 0 1
+21-Jun-2026 Pineapple 1/2 Kg 0 2 0 1 0 0 1
+21-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 1 0 0 0
+21-Jun-2026 Vanilla 1/2 Kg 0 1 0 0 0 0 1
+21-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 1 0
+21-Jun-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+21-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+21-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+21-Jun-2026 Classic Pineapple Pastry 0 3 0 2 0 0 1
+21-Jun-2026 Black Forest Pastry 2 0 0 1 0 0 1
+21-Jun-2026 Chocolate Truffle Pastry 2 2 0 3 0 0 1
+21-Jun-2026 Red Velvet Pastry 0 1 0 0 0 0 1
+21-Jun-2026 Blueberry Pastry 2 0 0 0 0 0 2
+21-Jun-2026 Rainbow Pastry 1 2 0 2 0 0 1
+21-Jun-2026 Blueberry Cheese pastry 0 1 0 0 0 0 1
+21-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+22-Jun-2026 chocolate truffle 1/2kg 1 0 0 3 0 0 2
+22-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+22-Jun-2026 Pineapple 1/2 Kg 1 1 0 1 0 0 1
+22-Jun-2026 Butterscotch (1/2 Kg) 0 2 0 1 0 0 1
+22-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 1 0
+22-Jun-2026 Fresh Fruit (1/2 Kg) 0 2 0 1 0 0 1
+22-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 1 0
+22-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+22-Jun-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+22-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+22-Jun-2026 Classic Pineapple Pastry 1 3 0 2 0 0 2
+22-Jun-2026 Black Forest Pastry 1 2 0 1 0 0 2
+22-Jun-2026 Chocolate Truffle Pastry 1 6 0 5 0 0 2
+22-Jun-2026 Red Velvet Pastry 1 0 0 0 0 1 0
+22-Jun-2026 Blueberry Pastry 2 0 0 1 0 0 1
+22-Jun-2026 Rainbow Pastry 1 3 0 2 0 0 2
+22-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 1 0
+22-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+23-Jun-2026 chocolate truffle 1/2kg 2 4 0 4 0 0 2
+23-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 1 0
+23-Jun-2026 Pineapple 1/2 Kg 1 3 0 2 0 0 2
+23-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 1 0 0 0
+23-Jun-2026 Vanilla 1/2 Kg 0 1 0 0 0 0 1
+23-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 1 0 0 0
+23-Jun-2026 Blueberry (1/2 Kg) 0 2 0 0 0 0 2
+23-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 1 0
+23-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+23-Jun-2026 Classic Pineapple Pastry 2 2 0 3 0 0 1
+23-Jun-2026 Black Forest Pastry 2 0 0 1 0 0 1
+23-Jun-2026 Chocolate Truffle Pastry 2 7 0 6 0 0 3
+23-Jun-2026 Red Velvet Pastry 0 1 0 0 0 0 1
+23-Jun-2026 Blueberry Pastry 1 2 0 1 0 0 2
+23-Jun-2026 Rainbow Pastry 2 1 0 2 0 0 1
+23-Jun-2026 Blueberry Cheese pastry 0 1 0 0 0 0 1
+23-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+24-Jun-2026 chocolate truffle 1/2kg 2 0 0 2 0 0 0
+24-Jun-2026 Chocolate Truffle 1 Kg 0 2 0 0 0 0 2
+24-Jun-2026 Pineapple 1/2 Kg 2 0 0 0 0 0 2
+24-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 1 0 0 0
+24-Jun-2026 Vanilla 1/2 Kg 1 0 0 1 0 0 0
+24-Jun-2026 Fresh Fruit (1/2 Kg) 0 2 0 0 0 0 2
+24-Jun-2026 Blueberry (1/2 Kg) 2 0 0 0 0 0 2
+24-Jun-2026 Tiramisu 1/2 Kg 0 2 0 2 0 0 0
+24-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+24-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+24-Jun-2026 Classic Pineapple Pastry 1 3 0 3 0 0 1
+24-Jun-2026 Black Forest Pastry 1 0 0 0 0 0 1
+24-Jun-2026 Chocolate Truffle Pastry 3 3 0 4 0 0 2
+24-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+24-Jun-2026 Blueberry Pastry 2 0 0 1 0 0 1
+24-Jun-2026 Rainbow Pastry 1 2 0 2 0 0 1
+24-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+24-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+25-Jun-2026 chocolate truffle 1/2kg 0 4 0 4 0 0 0
+25-Jun-2026 Chocolate Truffle 1 Kg 2 0 0 0 0 0 2
+25-Jun-2026 Pineapple 1/2 Kg 2 0 0 0 0 0 2
+25-Jun-2026 Butterscotch (1/2 Kg) 0 2 0 2 0 0 0
+25-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+25-Jun-2026 Fresh Fruit (1/2 Kg) 2 0 0 1 0 0 1
+25-Jun-2026 Blueberry (1/2 Kg) 2 0 0 0 0 0 2
+25-Jun-2026 Tiramisu 1/2 Kg 0 2 0 0 0 0 2
+25-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+25-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+25-Jun-2026 Classic Pineapple Pastry 1 1 0 1 0 0 1
+25-Jun-2026 Black Forest Pastry 1 0 0 0 0 0 1
+25-Jun-2026 Chocolate Truffle Pastry 2 2 0 1 0 0 3
+25-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+25-Jun-2026 Blueberry Pastry 1 1 0 0 0 0 2
+25-Jun-2026 Rainbow Pastry 1 2 0 2 0 0 1
+25-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+25-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+26-Jun-2026 chocolate truffle 1/2kg 0 5 0 4 0 0 1
+26-Jun-2026 Chocolate Truffle 1 Kg 2 0 0 0 0 0 2
+26-Jun-2026 Pineapple 1/2 Kg 2 0 0 0 0 0 2
+26-Jun-2026 Butterscotch (1/2 Kg) 0 2 0 1 0 0 1
+26-Jun-2026 Vanilla 1/2 Kg 0 2 0 0 0 0 2
+26-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+26-Jun-2026 Blueberry (1/2 Kg) 2 0 0 0 0 0 2
+26-Jun-2026 Tiramisu 1/2 Kg 2 0 0 0 0 0 2
+26-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+26-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+26-Jun-2026 Classic Pineapple Pastry 1 3 0 2 0 0 2
+26-Jun-2026 Black Forest Pastry 1 1 0 1 0 0 1
+26-Jun-2026 Chocolate Truffle Pastry 3 0 0 2 0 0 1
+26-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+26-Jun-2026 Blueberry Pastry 2 0 0 0 0 0 2
+26-Jun-2026 Rainbow Pastry 1 2 0 2 0 0 1
+26-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+26-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+27-Jun-2026 chocolate truffle 1/2kg 1 3 0 2 0 0 2
+27-Jun-2026 Chocolate Truffle 1 Kg 2 0 0 0 0 1 1
+27-Jun-2026 Pineapple 1/2 Kg 2 1 0 2 0 0 1
+27-Jun-2026 Butterscotch (1/2 Kg) 1 1 0 1 0 0 1
+27-Jun-2026 Vanilla 1/2 Kg 2 0 0 0 0 0 2
+27-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+27-Jun-2026 Blueberry (1/2 Kg) 2 0 0 0 0 0 2
+27-Jun-2026 Tiramisu 1/2 Kg 2 0 0 0 0 0 2
+27-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+27-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+27-Jun-2026 Classic Pineapple Pastry 2 2 0 0 0 0 4
+27-Jun-2026 Black Forest Pastry 1 2 0 1 0 0 2
+27-Jun-2026 Chocolate Truffle Pastry 1 5 0 3 0 0 3
+27-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+27-Jun-2026 Blueberry Pastry 2 0 0 1 0 0 1
+27-Jun-2026 Rainbow Pastry 1 3 0 1 0 0 3
+27-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+27-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+28-Jun-2026 chocolate truffle 1/2kg 2 0 0 2 0 0 0
+28-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 1 0
+28-Jun-2026 Pineapple 1/2 Kg 1 3 0 4 0 0 0
+28-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 1 0 0 0
+28-Jun-2026 Vanilla 1/2 Kg 2 1 0 2 0 0 1
+28-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 1 0 0 0
+28-Jun-2026 Blueberry (1/2 Kg) 2 0 0 0 0 0 2
+28-Jun-2026 Tiramisu 1/2 Kg 2 0 0 1 0 0 1
+28-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+28-Jun-2026 Classic Pineapple Pastry 4 0 0 2 0 0 2
+28-Jun-2026 Black Forest Pastry 2 0 0 1 0 0 1
+28-Jun-2026 Chocolate Truffle Pastry 3 0 0 2 0 0 1
+28-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+28-Jun-2026 Blueberry Pastry 1 1 0 0 0 0 2
+28-Jun-2026 Rainbow Pastry 3 0 0 1 0 0 2
+28-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+28-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+29-Jun-2026 chocolate truffle 1/2kg 0 5 0 3 0 0 2
+29-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+29-Jun-2026 Pineapple 1/2 Kg 0 2 0 1 0 0 1
+29-Jun-2026 Butterscotch (1/2 Kg) 0 2 0 2 0 0 0
+29-Jun-2026 Vanilla 1/2 Kg 1 0 0 1 0 0 0
+29-Jun-2026 Fresh Fruit (1/2 Kg) 0 2 0 0 0 0 2
+29-Jun-2026 Blueberry (1/2 Kg) 2 0 0 0 0 0 2
+29-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+29-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+29-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+29-Jun-2026 Classic Pineapple Pastry 2 2 0 2 0 0 2
+29-Jun-2026 Black Forest Pastry 1 1 0 1 0 0 1
+29-Jun-2026 Chocolate Truffle Pastry 1 3 0 2 0 0 2
+29-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+29-Jun-2026 Blueberry Pastry 2 0 0 0 0 0 2
+29-Jun-2026 Rainbow Pastry 2 0 0 1 0 0 1
+29-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+29-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+30-Jun-2026 chocolate truffle 1/2kg 2 2 0 4 0 0 0
+30-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+30-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 1 0 0 0
+30-Jun-2026 Vanilla 1/2 Kg 0 2 0 2 0 0 0
+30-Jun-2026 Fresh Fruit (1/2 Kg) 2 0 0 2 0 0 0
+30-Jun-2026 Blueberry (1/2 Kg) 2 0 0 0 0 0 2
+30-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+30-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+30-Jun-2026 Classic Pineapple Pastry 2 0 0 0 0 0 2
+30-Jun-2026 Black Forest Pastry 1 0 0 1 0 0 0
+30-Jun-2026 Chocolate Truffle Pastry 2 0 0 1 0 0 1
+30-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+30-Jun-2026 Blueberry Pastry 2 0 0 0 0 0 2
+30-Jun-2026 Rainbow Pastry 1 0 0 1 0 0 0
+30-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+30-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+01-Jul-2026 chocolate truffle 1/2kg 0 6 0 5 0 0 1
+01-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+01-Jul-2026 Pineapple 1/2 Kg 1 3 0 3 0 0 1
+01-Jul-2026 Butterscotch (1/2 Kg) 0 1 0 1 0 0 0
+01-Jul-2026 Vanilla 1/2 Kg 0 2 0 1 0 0 1
+01-Jul-2026 Fresh Fruit (1/2 Kg) 0 3 0 2 0 0 1
+01-Jul-2026 Blueberry (1/2 Kg) 2 0 0 1 0 0 1
+01-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+01-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Classic Pineapple Pastry 2 5 0 6 0 0 1
+01-Jul-2026 Black Forest Pastry 0 0 0 0 0 0 0
+01-Jul-2026 Chocolate Truffle Pastry 1 8 0 8 0 0 1
+01-Jul-2026 Red Velvet Pastry 1 0 0 1 0 0 0
+01-Jul-2026 Blueberry Pastry 2 0 0 0 0 0 2
+01-Jul-2026 Rainbow Pastry 0 3 0 3 0 0 0
+01-Jul-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+01-Jul-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+02-Jul-2026 chocolate truffle 1/2kg 1 0 0 4 0 0 0
+02-Jul-2026 Chocolate Truffle 1 Kg 0 1 0 0 0 0 1
+02-Jul-2026 Pineapple 1/2 Kg 1 1 0 1 0 0 1
+02-Jul-2026 Butterscotch (1/2 Kg) 0 2 0 2 0 0 0
+02-Jul-2026 Vanilla 1/2 Kg 1 0 0 1 0 0 0
+02-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 1 0 0 0
+02-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Classic Pineapple Pastry 1 3 0 3 0 0 1
+02-Jul-2026 Black Forest Pastry 0 0 0 0 0 0 0
+02-Jul-2026 Chocolate Truffle Pastry 1 6 0 6 0 0 1
+02-Jul-2026 Red Velvet Pastry 0 1 0 0 0 0 1
+02-Jul-2026 Blueberry Pastry 2 0 0 0 0 0 2
+02-Jul-2026 Rainbow Pastry 0 3 0 3 0 0 0
+02-Jul-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+02-Jul-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+03-Jul-2026 chocolate truffle 1/2kg 0 8 0 4 0 0 4
+03-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+03-Jul-2026 Pineapple 1/2 Kg 1 2 0 1 0 0 2
+03-Jul-2026 Butterscotch (1/2 Kg) 0 3 0 3 0 0 0
+03-Jul-2026 Vanilla 1/2 Kg 0 3 0 1 0 0 2
+03-Jul-2026 Fresh Fruit (1/2 Kg) 0 3 0 1 0 0 2
+03-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 1 0
+03-Jul-2026 Tiramisu 1/2 Kg 1 1 0 1 0 0 1
+03-Jul-2026 Black Forest 1/2 Kg 0 4 0 2 0 0 2
+03-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 1 0 0 0
+03-Jul-2026 Blueberry Cheese Cake (1/2 Kg) 0 4 0 0 0 0 4
+03-Jul-2026 Nutella Cheese Cake (1/2 Kg) 0 1 0 0 0 0 1
+03-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 0
+03-Jul-2026 Ferro Rocher 1/2 Kg 1 1 0 1 0 0 1
+03-Jul-2026 Classic Pineapple Pastry 1 3 0 5 0 0 0
+03-Jul-2026 Black Forest Pastry 0 1 0 1 0 0 0
+03-Jul-2026 Chocolate Truffle Pastry 1 21 0 8 0 0 15
+03-Jul-2026 Red Velvet Pastry 1 0 0 1 0 1 0
+03-Jul-2026 Blueberry Pastry 2 0 0 1 0 5 0
+03-Jul-2026 Rainbow Pastry 0 0 0 4 0 0 2
+03-Jul-2026 Biscoff cheese Pastry 1 0 0 1 0 1 0
+03-Jul-2026 Blueberry Cheese pastry 1 0 0 3 0 1 0
+03-Jul-2026 Nutella Cheese pastry 0 0 0 2 0 1 0
+04-Jul-2026 chocolate truffle 1/2kg 4 0 0 7 0 0 1
+04-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 1 0
+04-Jul-2026 Pineapple 1/2 Kg 2 1 0 1 0 0 2
+04-Jul-2026 Butterscotch (1/2 Kg) 0 2 0 2 0 0 0
+04-Jul-2026 Vanilla 1/2 Kg 3 0 0 0 0 0 3
+04-Jul-2026 Fresh Fruit (1/2 Kg) 2 0 0 2 0 0 0
+04-Jul-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+04-Jul-2026 Tiramisu 1/2 Kg 0 1 0 0 0 0 1
+04-Jul-2026 Black Forest 1/2 Kg 3 0 0 2 0 0 1
+04-Jul-2026 Red Velvet (1/2 Kg) 0 2 0 2 0 0 0
+04-Jul-2026 Blueberry Cheese Cake (1/2 Kg) 4 0 0 0 0 4 0
+04-Jul-2026 Nutella Cheese Cake (1/2 Kg) 1 0 0 0 0 1 0
+04-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+04-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+04-Jul-2026 Classic Pineapple Pastry 0 4 0 3 0 0 1
+04-Jul-2026 Black Forest Pastry 0 3 0 0 0 0 3
+04-Jul-2026 Chocolate Truffle Pastry 15 0 0 6 0 1 8
+04-Jul-2026 Red Velvet Pastry 6 0 0 0 0 1 5
+04-Jul-2026 Blueberry Pastry 0 3 0 0 0 0 3
+04-Jul-2026 Rainbow Pastry 2 0 0 1 0 0 1
+04-Jul-2026 Biscoff cheese Pastry 0 3 0 0 0 0 3
+04-Jul-2026 Blueberry Cheese pastry 0 4 0 2 0 0 2
+04-Jul-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+05-Jul-2026 chocolate truffle 1/2kg 1 8 0 5 0 0 4
+05-Jul-2026 Chocolate Truffle 1 Kg 0 1 0 0 0 0 1
+05-Jul-2026 Pineapple 1/2 Kg 2 4 0 3 0 0 3
+05-Jul-2026 Butterscotch (1/2 Kg) 0 4 0 3 0 0 1
+05-Jul-2026 Vanilla 1/2 Kg 3 1 0 2 0 0 2
+05-Jul-2026 Fresh Fruit (1/2 Kg) 0 2 0 0 0 0 2
+05-Jul-2026 Blueberry (1/2 Kg) 1 0 0 1 0 0 0
+05-Jul-2026 Tiramisu 1/2 Kg 1 1 0 0 0 0 2
+05-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 1 0
+05-Jul-2026 Red Velvet (1/2 Kg) 0 1 0 1 0 0 0
+05-Jul-2026 Blueberry Cheese Cake (1/2 Kg) 0 0 0 0 0 0 0
+05-Jul-2026 Nutella Cheese Cake (1/2 Kg) 0 1 0 1 0 0 0
+05-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+05-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+05-Jul-2026 Classic Pineapple Pastry 1 7 0 4 0 0 4
+05-Jul-2026 Black Forest Pastry 3 7 0 3 0 0 7
+05-Jul-2026 Chocolate Truffle Pastry 8 7 0 9 0 0 6
+05-Jul-2026 Red Velvet Pastry 5 0 0 3 0 2 0
+05-Jul-2026 Blueberry Pastry 3 2 0 2 0 0 3
+05-Jul-2026 Rainbow Pastry 1 11 0 5 0 0 7
+05-Jul-2026 Biscoff cheese Pastry 3 0 0 0 0 3 0
+05-Jul-2026 Blueberry Cheese pastry 2 2 0 2 0 0 2
+05-Jul-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+
+SEC 42 DATA :
+Date ITEM NAME Open Recv O.Rec Sold Test Waste CLOSING
+20-Jun-2026 chocolate truffle 1/2kg 2 0 0 2 0 0 0
+20-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Pineapple 1/2 Kg 0 2 0 1 0 0 1
+20-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 1 0
+20-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+20-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 1 0
+20-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Classic Pineapple Pastry 2 2 0 2 0 0 2
+20-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+20-Jun-2026 Chocolate Truffle Pastry 3 2 0 3 0 0 2
+20-Jun-2026 Red Velvet Pastry 1 0 0 0 0 1 0
+20-Jun-2026 Blueberry Pastry 2 0 0 1 0 0 1
+20-Jun-2026 Rainbow Pastry 1 1 0 1 0 0 1
+20-Jun-2026 Blueberry Cheese pastry 1 0 0 0 0 1 0
+20-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+21-Jun-2026 chocolate truffle 1/2kg 0 1 0 0 0 0 1
+21-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+21-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 0 0 0 1
+21-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 1 0
+21-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Classic Pineapple Pastry 2 1 0 1 0 0 2
+21-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+21-Jun-2026 Chocolate Truffle Pastry 2 2 0 2 0 0 2
+21-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+21-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 1
+21-Jun-2026 Rainbow Pastry 1 1 0 0 0 0 2
+21-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 0
+21-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+22-Jun-2026 chocolate truffle 1/2kg 1 0 0 1 0 0 0
+22-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+22-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+22-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Classic Pineapple Pastry 2 1 0 1 0 0 2
+22-Jun-2026 Black Forest Pastry 2 1 0 0 0 0 3
+22-Jun-2026 Chocolate Truffle Pastry 2 2 0 2 0 0 2
+22-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+22-Jun-2026 Blueberry Pastry 1 0 0 1 0 0 0
+22-Jun-2026 Rainbow Pastry 2 0 0 1 0 0 1
+22-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 0
+22-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+23-Jun-2026 chocolate truffle 1/2kg 0 0 0 0 0 0 0
+23-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+23-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+23-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Classic Pineapple Pastry 2 1 0 1 0 0 2
+23-Jun-2026 Black Forest Pastry 3 0 0 1 0 0 2
+23-Jun-2026 Chocolate Truffle Pastry 2 3 0 2 0 0 3
+23-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+23-Jun-2026 Blueberry Pastry 0 0 0 0 0 0 0
+23-Jun-2026 Rainbow Pastry 1 1 0 0 0 0 2
+23-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 0
+23-Jun-2026 Nutella Cheese pastry 0 1 0 0 0 0 1
+24-Jun-2026 chocolate truffle 1/2kg 0 2 0 1 0 0 3
+24-Jun-2026 Chocolate Truffle 1 Kg 0 1 0 0 0 0 1
+24-Jun-2026 Pineapple 1/2 Kg 1 3 0 2 0 0 1
+24-Jun-2026 Butterscotch (1/2 Kg) 1 4 0 2 0 0 2
+24-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 1
+24-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+24-Jun-2026 Blueberry (1/2 Kg) 0 0 0 1 0 0 0
+24-Jun-2026 Tiramisu 1/2 Kg 0 1 0 1 0 0 1
+24-Jun-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 1
+24-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+24-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 1 0
+24-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+24-Jun-2026 Classic Pineapple Pastry 2 0 0 0 0 5 3
+24-Jun-2026 Black Forest Pastry 2 0 0 0 0 1 4
+24-Jun-2026 Chocolate Truffle Pastry 3 17 0 4 0 0 13
+24-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 4
+24-Jun-2026 Blueberry Pastry 0 0 0 0 0 0 5
+24-Jun-2026 Rainbow Pastry 2 0 0 0 0 0 4
+24-Jun-2026 Blueberry Cheese pastry 0 2 0 1 0 0 2
+24-Jun-2026 Nutella Cheese pastry 1 0 0 2 0 0 0
+25-Jun-2026 chocolate truffle 1/2kg 3 0 0 0 0 0 3
+25-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Pineapple 1/2 Kg 1 1 0 0 0 0 2
+25-Jun-2026 Butterscotch (1/2 Kg) 2 0 0 1 0 0 1
+25-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 0 1
+25-Jun-2026 Blueberry (1/2 Kg) 0 2 0 0 0 0 2
+25-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+25-Jun-2026 Red Velvet (1/2 Kg) 0 1 0 0 0 0 1
+25-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 0
+25-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+25-Jun-2026 Classic Pineapple Pastry 3 1 0 1 0 0 3
+25-Jun-2026 Black Forest Pastry 4 0 0 1 0 0 3
+25-Jun-2026 Chocolate Truffle Pastry 13 0 0 0 0 1 12
+25-Jun-2026 Red Velvet Pastry 4 0 0 0 0 0 4
+25-Jun-2026 Blueberry Pastry 5 0 0 0 0 0 5
+25-Jun-2026 Rainbow Pastry 4 4 0 3 0 0 5
+25-Jun-2026 Blueberry Cheese pastry 2 3 0 1 0 0 4
+25-Jun-2026 Nutella Cheese pastry 0 6 0 1 0 0 5
+26-Jun-2026 chocolate truffle 1/2kg 3 0 0 1 0 0 2
+26-Jun-2026 Chocolate Truffle 1 Kg 1 1 0 0 0 0 1
+26-Jun-2026 Pineapple 1/2 Kg 2 0 0 0 0 0 2
+26-Jun-2026 Butterscotch (1/2 Kg) 1 1 0 1 0 0 1
+26-Jun-2026 Vanilla 1/2 Kg 1 1 0 0 0 0 2
+26-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+26-Jun-2026 Blueberry (1/2 Kg) 2 0 0 1 0 0 1
+26-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+26-Jun-2026 Black Forest 1/2 Kg 0 2 0 1 0 0 1
+26-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+26-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 0 0 0 1
+26-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+26-Jun-2026 Classic Pineapple Pastry 3 2 0 1 0 0 4
+26-Jun-2026 Black Forest Pastry 3 1 0 0 0 0 4
+26-Jun-2026 Chocolate Truffle Pastry 12 0 0 4 0 0 8
+26-Jun-2026 Red Velvet Pastry 4 3 0 3 0 0 4
+26-Jun-2026 Blueberry Pastry 5 0 0 1 0 0 4
+26-Jun-2026 Rainbow Pastry 5 7 0 7 0 0 5
+26-Jun-2026 Blueberry Cheese pastry 4 0 0 0 0 0 4
+26-Jun-2026 Nutella Cheese pastry 5 0 0 2 0 0 3
+27-Jun-2026 chocolate truffle 1/2kg 2 0 0 2 0 0 0
+27-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Pineapple 1/2 Kg 2 1 0 1 0 0 2
+27-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 1 0 0 0
+27-Jun-2026 Vanilla 1/2 Kg 2 0 0 0 0 2 0
+27-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+27-Jun-2026 Blueberry (1/2 Kg) 1 1 0 1 0 0 1
+27-Jun-2026 Tiramisu 1/2 Kg 1 0 0 1 0 0 0
+27-Jun-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+27-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+27-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+27-Jun-2026 Classic Pineapple Pastry 4 0 0 2 0 0 2
+27-Jun-2026 Black Forest Pastry 4 0 0 0 0 0 4
+27-Jun-2026 Chocolate Truffle Pastry 8 0 0 4 0 0 4
+27-Jun-2026 Red Velvet Pastry 4 0 0 1 0 0 3
+27-Jun-2026 Blueberry Pastry 4 0 0 0 0 0 4
+27-Jun-2026 Rainbow Pastry 5 0 0 1 0 0 4
+27-Jun-2026 Blueberry Cheese pastry 4 0 0 0 0 0 4
+27-Jun-2026 Nutella Cheese pastry 3 1 0 1 0 0 3
+28-Jun-2026 chocolate truffle 1/2kg 0 3 0 3 0 0 0
+28-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+28-Jun-2026 Pineapple 1/2 Kg 2 0 0 0 2 0 0
+28-Jun-2026 Butterscotch (1/2 Kg) 0 2 0 2 0 0 0
+28-Jun-2026 Vanilla 1/2 Kg 0 2 0 1 0 0 1
+28-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 1 0 0 0
+28-Jun-2026 Blueberry (1/2 Kg) 1 0 0 1 0 0 0
+28-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+28-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 1 0 0 0
+28-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Classic Pineapple Pastry 2 4 0 1 0 0 3
+28-Jun-2026 Black Forest Pastry 4 0 0 1 0 0 3
+28-Jun-2026 Chocolate Truffle Pastry 4 9 0 2 0 0 11
+28-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+28-Jun-2026 Blueberry Pastry 4 0 0 0 0 0 4
+28-Jun-2026 Rainbow Pastry 0 0 0 2 0 0 0
+28-Jun-2026 Blueberry Cheese pastry 4 0 0 3 0 0 0
+28-Jun-2026 Nutella Cheese pastry 2 0 0 2 0 0 0
+29-Jun-2026 chocolate truffle 1/2kg 0 4 0 3 0 0 1
+29-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 1 0
+29-Jun-2026 Pineapple 1/2 Kg 0 1 0 1 0 0 0
+29-Jun-2026 Butterscotch (1/2 Kg) 0 2 0 1 0 0 1
+29-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+29-Jun-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 0 1
+29-Jun-2026 Blueberry (1/2 Kg) 0 0 0 1 0 0 0
+29-Jun-2026 Tiramisu 1/2 Kg 0 1 0 0 0 0 1
+29-Jun-2026 Black Forest 1/2 Kg 0 1 0 0 0 0 1
+29-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 1 0
+29-Jun-2026 Blueberry Cheese Cake (1/2 Kg) 1 0 0 0 0 1 0
+29-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 1 0
+29-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+29-Jun-2026 Classic Pineapple Pastry 3 4 0 0 0 0 7
+29-Jun-2026 Black Forest Pastry 3 4 0 1 0 0 6
+29-Jun-2026 Chocolate Truffle Pastry 11 0 0 0 0 1 10
+29-Jun-2026 Red Velvet Pastry 0 4 0 3 0 0 1
+29-Jun-2026 Blueberry Pastry 4 0 0 0 0 0 4
+29-Jun-2026 Rainbow Pastry 0 3 0 1 0 0 2
+29-Jun-2026 Blueberry Cheese pastry 0 4 0 0 0 0 4
+29-Jun-2026 Nutella Cheese pastry 0 4 0 1 0 0 3
+30-Jun-2026 chocolate truffle 1/2kg 1 3 0 3 0 0 1
+30-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+30-Jun-2026 Pineapple 1/2 Kg 0 1 0 1 0 0 0
+30-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+30-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Fresh Fruit (1/2 Kg) 1 1 0 1 0 0 1
+30-Jun-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+30-Jun-2026 Tiramisu 1/2 Kg 1 0 0 1 0 0 0
+30-Jun-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Red Velvet (1/2 Kg) 0 1 0 0 0 0 1
+30-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 3 0 2 0 0 1
+30-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+30-Jun-2026 Classic Pineapple Pastry 7 0 0 1 0 1 5
+30-Jun-2026 Black Forest Pastry 6 0 0 3 0 0 3
+30-Jun-2026 Chocolate Truffle Pastry 10 0 0 3 0 0 7
+30-Jun-2026 Red Velvet Pastry 1 2 0 1 0 0 2
+30-Jun-2026 Blueberry Pastry 4 0 0 0 0 0 4
+30-Jun-2026 Rainbow Pastry 2 3 0 0 0 0 5
+30-Jun-2026 Blueberry Cheese pastry 4 0 0 1 0 0 3
+30-Jun-2026 Nutella Cheese pastry 3 0 0 0 0 0 3
+01-Jul-2026 chocolate truffle 1/2kg 3 0 0 0 0 0 3
+01-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Pineapple 1/2 Kg 1 3 0 3 0 0 1
+01-Jul-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Vanilla 1/2 Kg 1 1 0 1 0 0 1
+01-Jul-2026 Fresh Fruit (1/2 Kg) 0 1 0 1 0 0 0
+01-Jul-2026 Blueberry (1/2 Kg) 0 1 0 1 0 0 0
+01-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Red Velvet (1/2 Kg) 1 1 0 1 0 0 1
+01-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 0
+01-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+01-Jul-2026 Classic Pineapple Pastry 4 2 0 2 0 0 4
+01-Jul-2026 Black Forest Pastry 1 5 0 5 0 0 1
+01-Jul-2026 Chocolate Truffle Pastry 0 7 0 7 0 0 0
+01-Jul-2026 Red Velvet Pastry 0 4 0 4 0 0 0
+01-Jul-2026 Blueberry Pastry 2 0 0 0 0 0 2
+01-Jul-2026 Rainbow Pastry 2 3 0 3 0 0 2
+01-Jul-2026 Blueberry Cheese pastry 2 1 0 1 0 0 2
+01-Jul-2026 Nutella Cheese pastry 3 0 0 0 0 0 3
+02-Jul-2026 chocolate truffle 1/2kg 3 0 0 0 0 0 3
+02-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+02-Jul-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+02-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Classic Pineapple Pastry 4 1 0 1 0 0 4
+02-Jul-2026 Black Forest Pastry 1 2 0 1 0 0 2
+02-Jul-2026 Chocolate Truffle Pastry 0 3 0 2 0 0 1
+02-Jul-2026 Red Velvet Pastry 0 1 0 1 0 0 0
+02-Jul-2026 Blueberry Pastry 2 0 0 0 0 0 2
+02-Jul-2026 Rainbow Pastry 2 2 0 1 0 0 3
+02-Jul-2026 Blueberry Cheese pastry 2 0 0 0 0 0 2
+02-Jul-2026 Nutella Cheese pastry 3 1 0 0 0 0 4
+03-Jul-2026 chocolate truffle 1/2kg 3 0 0 2 0 0 1
+03-Jul-2026 Chocolate Truffle 1 Kg 1 1 0 0 0 0 1
+03-Jul-2026 Pineapple 1/2 Kg 1 2 0 0 0 0 2
+03-Jul-2026 Butterscotch (1/2 Kg) 1 1 0 1 0 0 0
+03-Jul-2026 Vanilla 1/2 Kg 1 1 0 0 0 0 1
+03-Jul-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 0 1
+03-Jul-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+03-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+03-Jul-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+03-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 1 0 0 0
+03-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 0 0 0 1
+03-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+03-Jul-2026 Classic Pineapple Pastry 4 1 0 1 0 0 3
+03-Jul-2026 Black Forest Pastry 2 6 0 5 0 0 4
+03-Jul-2026 Chocolate Truffle Pastry 1 7 0 5 0 0 2
+03-Jul-2026 Red Velvet Pastry 0 0 0 0 0 0 4
+03-Jul-2026 Blueberry Pastry 2 0 0 0 0 1 3
+03-Jul-2026 Rainbow Pastry 3 4 0 0 0 0 6
+03-Jul-2026 Blueberry Cheese pastry 2 4 0 0 0 0 4
+03-Jul-2026 Nutella Cheese pastry 4 4 0 0 0 0 6
+04-Jul-2026 chocolate truffle 1/2kg 1 2 0 1 0 0 2
+04-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+04-Jul-2026 Pineapple 1/2 Kg 2 0 0 0 0 1 1
+04-Jul-2026 Butterscotch (1/2 Kg) 0 2 0 0 0 0 2
+04-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 1 0
+04-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 1 0 0 0
+04-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+04-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+04-Jul-2026 Black Forest 1/2 Kg 0 1 0 0 0 0 1
+04-Jul-2026 Red Velvet (1/2 Kg) 0 1 0 0 0 0 1
+04-Jul-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 1 0
+04-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+04-Jul-2026 Classic Pineapple Pastry 3 0 0 0 0 0 3
+04-Jul-2026 Black Forest Pastry 4 0 0 0 0 0 4
+04-Jul-2026 Chocolate Truffle Pastry 2 5 0 1 0 0 6
+04-Jul-2026 Red Velvet Pastry 4 1 0 1 0 0 4
+04-Jul-2026 Blueberry Pastry 3 0 0 0 0 0 3
+04-Jul-2026 Rainbow Pastry 6 0 0 0 0 0 6
+04-Jul-2026 Blueberry Cheese pastry 4 0 0 0 0 0 4
+04-Jul-2026 Nutella Cheese pastry 6 0 0 1 0 0 5
+05-Jul-2026 chocolate truffle 1/2kg 2 2 0 2 0 0 2
+05-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+05-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+05-Jul-2026 Butterscotch (1/2 Kg) 2 0 0 1 0 1 0
+05-Jul-2026 Vanilla 1/2 Kg 0 1 0 1 0 0 0
+05-Jul-2026 Fresh Fruit (1/2 Kg) 0 2 0 2 0 0 0
+05-Jul-2026 Blueberry (1/2 Kg) 1 1 0 2 0 0 0
+05-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+05-Jul-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+05-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 1 0 0 0
+05-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 0 0 0 1
+05-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+05-Jul-2026 Classic Pineapple Pastry 3 6 0 6 0 0 3
+05-Jul-2026 Black Forest Pastry 4 0 0 1 0 0 3
+05-Jul-2026 Chocolate Truffle Pastry 6 0 0 3 0 0 3
+05-Jul-2026 Red Velvet Pastry 4 0 0 1 0 1 2
+05-Jul-2026 Blueberry Pastry 3 0 0 0 0 0 3
+05-Jul-2026 Rainbow Pastry 6 0 0 1 0 1 4
+05-Jul-2026 Blueberry Cheese pastry 4 0 0 2 0 0 2
+05-Jul-2026 Nutella Cheese pastry 5 1 0 2 0 0 4
+
+SEC 35 DATA :
+Date ITEM NAME Open Recv O.Rec Sold Test Waste CLOSING
+20-Jun-2026 chocolate truffle 1/2kg 1 0 0 1 0 0 0
+20-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Pineapple 1/2 Kg 0 1 0 0 0 0 1
+20-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Black Forest 1/2 Kg 1 0 0 0 0 1 0
+20-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+20-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Classic Pineapple Pastry 2 0 0 1 0 0 1
+20-Jun-2026 Black Forest Pastry 2 0 0 0 0 0 2
+20-Jun-2026 Chocolate Truffle Pastry 1 0 0 0 0 0 1
+20-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+20-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 1
+20-Jun-2026 Rainbow Pastry 1 0 0 0 0 0 1
+20-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 0
+20-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+21-Jun-2026 chocolate truffle 1/2kg 0 1 0 0 0 0 1
+21-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+21-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+21-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Classic Pineapple Pastry 1 1 0 0 0 0 2
+21-Jun-2026 Black Forest Pastry 2 0 0 0 0 0 2
+21-Jun-2026 Chocolate Truffle Pastry 1 0 0 0 0 0 1
+21-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+21-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 1
+21-Jun-2026 Rainbow Pastry 1 0 0 1 0 0 0
+21-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 0
+21-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+22-Jun-2026 chocolate truffle 1/2kg 1 0 0 0 0 0 1
+22-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+22-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+22-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Classic Pineapple Pastry 2 0 0 1 0 0 1
+22-Jun-2026 Black Forest Pastry 2 0 0 0 0 0 2
+22-Jun-2026 Chocolate Truffle Pastry 1 0 0 0 0 0 1
+22-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+22-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 1
+22-Jun-2026 Rainbow Pastry 0 0 0 0 0 0 0
+22-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 0
+22-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+23-Jun-2026 chocolate truffle 1/2kg 1 0 0 0 0 0 1
+23-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+23-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+23-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Classic Pineapple Pastry 1 1 0 0 0 0 2
+23-Jun-2026 Black Forest Pastry 2 1 0 0 0 0 3
+23-Jun-2026 Chocolate Truffle Pastry 1 1 0 0 0 0 2
+23-Jun-2026 Red Velvet Pastry 0 0 0 0 0 0 0
+23-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 1
+23-Jun-2026 Rainbow Pastry 0 0 0 0 0 0 0
+23-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 0
+23-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+24-Jun-2026 chocolate truffle 1/2kg 1 1 0 0 0 0 2
+24-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+24-Jun-2026 Pineapple 1/2 Kg 1 1 0 1 0 0 1
+24-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 1
+24-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 1
+24-Jun-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 0 1
+24-Jun-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+24-Jun-2026 Tiramisu 1/2 Kg 0 0 0 1 0 1 0
+24-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 1
+24-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 1 0
+24-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 1
+24-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+24-Jun-2026 Classic Pineapple Pastry 2 3 0 1 0 0 7
+24-Jun-2026 Black Forest Pastry 3 3 0 0 0 0 7
+24-Jun-2026 Chocolate Truffle Pastry 2 5 0 2 0 0 4
+24-Jun-2026 Red Velvet Pastry 0 2 0 0 0 0 3
+24-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 3
+24-Jun-2026 Rainbow Pastry 0 3 0 2 0 0 3
+24-Jun-2026 Biscoff cheese Pastry 0 0 0 0 0 0 4
+24-Jun-2026 Blueberry Cheese pastry 0 0 0 0 0 0 4
+24-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 8
+25-Jun-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+25-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+25-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Butterscotch (1/2 Kg) 1 1 0 1 0 0 1
+25-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 1 0
+25-Jun-2026 Blueberry (1/2 Kg) 1 0 0 1 0 0 0
+25-Jun-2026 Tiramisu 1/2 Kg 0 1 0 0 0 0 1
+25-Jun-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+25-Jun-2026 Red Velvet (1/2 Kg) 0 1 0 1 0 0 0
+25-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+25-Jun-2026 Classic Pineapple Pastry 7 0 0 2 0 3 2
+25-Jun-2026 Black Forest Pastry 7 0 0 1 0 2 4
+25-Jun-2026 Chocolate Truffle Pastry 4 0 0 0 0 0 4
+25-Jun-2026 Red Velvet Pastry 3 0 0 0 0 0 3
+25-Jun-2026 Blueberry Pastry 3 0 0 0 0 0 3
+25-Jun-2026 Rainbow Pastry 3 0 0 0 0 0 3
+25-Jun-2026 Biscoff cheese Pastry 4 0 0 0 0 2 2
+25-Jun-2026 Blueberry Cheese pastry 4 0 0 0 0 0 4
+25-Jun-2026 Nutella Cheese pastry 8 0 0 0 0 6 2
+26-Jun-2026 chocolate truffle 1/2kg 2 1 0 0 0 0 2
+26-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+26-Jun-2026 Pineapple 1/2 Kg 1 0 0 1 0 0 0
+26-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 1 0 0
+26-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+26-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+26-Jun-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+26-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+26-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+26-Jun-2026 Red Velvet (1/2 Kg) 0 1 0 0 0 0 1
+26-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+26-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+26-Jun-2026 Classic Pineapple Pastry 2 1 0 0 0 0 3
+26-Jun-2026 Black Forest Pastry 4 0 0 0 0 1 3
+26-Jun-2026 Chocolate Truffle Pastry 4 0 0 1 0 0 3
+26-Jun-2026 Red Velvet Pastry 3 0 0 0 0 0 3
+26-Jun-2026 Blueberry Pastry 3 0 0 0 0 2 1
+26-Jun-2026 Rainbow Pastry 3 0 0 0 0 0 3
+26-Jun-2026 Biscoff cheese Pastry 2 0 0 1 0 0 1
+26-Jun-2026 Blueberry Cheese pastry 4 0 0 1 0 2 1
+26-Jun-2026 Nutella Cheese pastry 2 0 0 0 0 0 2
+27-Jun-2026 chocolate truffle 1/2kg 2 2 0 1 0 0 1
+27-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+27-Jun-2026 Pineapple 1/2 Kg 0 1 0 0 0 0 1
+27-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 1 0 0 0
+27-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+27-Jun-2026 Blueberry (1/2 Kg) 1 0 0 1 0 0 0
+27-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 1 0
+27-Jun-2026 Black Forest 1/2 Kg 0 1 0 0 0 0 1
+27-Jun-2026 Red Velvet (1/2 Kg) 1 1 0 1 0 0 1
+27-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+27-Jun-2026 Classic Pineapple Pastry 3 0 0 1 0 0 2
+27-Jun-2026 Black Forest Pastry 3 1 0 2 0 0 2
+27-Jun-2026 Chocolate Truffle Pastry 3 1 0 2 0 0 2
+27-Jun-2026 Red Velvet Pastry 3 0 0 1 0 1 1
+27-Jun-2026 Blueberry Pastry 1 2 0 0 0 0 3
+27-Jun-2026 Rainbow Pastry 3 0 0 1 0 1 1
+27-Jun-2026 Biscoff cheese Pastry 1 2 0 0 0 0 3
+27-Jun-2026 Blueberry Cheese pastry 1 2 0 1 0 0 2
+27-Jun-2026 Nutella Cheese pastry 2 2 0 2 0 0 2
+28-Jun-2026 chocolate truffle 1/2kg 1 0 0 0 0 0 2
+28-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 1 0
+28-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+28-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 1 0
+28-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+28-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+28-Jun-2026 Tiramisu 1/2 Kg 0 1 0 0 0 0 1
+28-Jun-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+28-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+28-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+28-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Classic Pineapple Pastry 2 2 0 0 0 0 4
+28-Jun-2026 Black Forest Pastry 2 1 0 0 0 0 3
+28-Jun-2026 Chocolate Truffle Pastry 2 4 0 0 0 0 6
+28-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 0
+28-Jun-2026 Blueberry Pastry 3 0 0 0 0 0 3
+28-Jun-2026 Rainbow Pastry 1 3 0 0 0 0 4
+28-Jun-2026 Biscoff cheese Pastry 3 0 0 0 0 0 3
+28-Jun-2026 Blueberry Cheese pastry 2 0 0 0 0 0 2
+28-Jun-2026 Nutella Cheese pastry 2 0 0 0 0 0 1
+29-Jun-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+29-Jun-2026 Chocolate Truffle 1 Kg 0 1 0 0 0 0 1
+29-Jun-2026 Pineapple 1/2 Kg 0 1 0 0 0 0 1
+29-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+29-Jun-2026 Vanilla 1/2 Kg 0 1 0 0 0 0 1
+29-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+29-Jun-2026 Blueberry (1/2 Kg) 0 1 0 1 0 0 0
+29-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+29-Jun-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+29-Jun-2026 Red Velvet (1/2 Kg) 1 1 0 1 0 0 1
+29-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+29-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+29-Jun-2026 Classic Pineapple Pastry 4 2 0 4 0 0 2
+29-Jun-2026 Black Forest Pastry 3 2 0 1 0 0 4
+29-Jun-2026 Chocolate Truffle Pastry 6 2 0 2 0 0 6
+29-Jun-2026 Red Velvet Pastry 0 2 0 0 0 0 2
+29-Jun-2026 Blueberry Pastry 3 1 0 1 0 0 3
+29-Jun-2026 Rainbow Pastry 4 0 0 0 0 0 3
+29-Jun-2026 Biscoff cheese Pastry 3 0 0 1 0 2 0
+29-Jun-2026 Blueberry Cheese pastry 2 1 0 0 0 0 3
+29-Jun-2026 Nutella Cheese pastry 1 1 0 0 0 0 2
+30-Jun-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+30-Jun-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 0 0 0 1
+30-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+30-Jun-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+30-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+30-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 1 0 0 0
+30-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+30-Jun-2026 Classic Pineapple Pastry 2 0 0 2 0 0 0
+30-Jun-2026 Black Forest Pastry 4 0 0 3 0 0 1
+30-Jun-2026 Chocolate Truffle Pastry 6 0 0 3 0 0 3
+30-Jun-2026 Red Velvet Pastry 2 0 0 0 0 0 2
+30-Jun-2026 Blueberry Pastry 3 1 0 2 0 0 2
+30-Jun-2026 Rainbow Pastry 3 0 0 0 0 0 3
+30-Jun-2026 Biscoff cheese Pastry 0 2 0 2 0 0 0
+30-Jun-2026 Blueberry Cheese pastry 3 1 0 2 0 0 3
+30-Jun-2026 Nutella Cheese pastry 2 0 0 0 0 0 2
+01-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+01-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 0
+01-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Butterscotch (1/2 Kg) 1 1 0 1 0 0 0
+01-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 0
+01-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 1
+01-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+01-Jul-2026 Classic Pineapple Pastry 0 1 0 1 0 0 3
+01-Jul-2026 Black Forest Pastry 1 5 0 5 0 0 1
+01-Jul-2026 Chocolate Truffle Pastry 3 0 0 0 0 0 6
+01-Jul-2026 Red Velvet Pastry 2 1 0 1 0 0 1
+01-Jul-2026 Blueberry Pastry 2 0 0 0 0 0 2
+01-Jul-2026 Rainbow Pastry 3 0 0 0 0 0 2
+01-Jul-2026 Biscoff cheese Pastry 0 0 0 0 0 0 1
+01-Jul-2026 Blueberry Cheese pastry 3 0 0 0 0 0 3
+01-Jul-2026 Nutella Cheese pastry 2 1 0 1 0 0 1
+02-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+02-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+02-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Classic Pineapple Pastry 3 0 0 0 0 0 3
+02-Jul-2026 Black Forest Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Chocolate Truffle Pastry 6 0 0 0 0 0 6
+02-Jul-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Blueberry Pastry 2 0 0 0 0 0 2
+02-Jul-2026 Rainbow Pastry 2 0 0 0 0 0 2
+02-Jul-2026 Biscoff cheese Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Blueberry Cheese pastry 3 0 0 0 0 0 3
+02-Jul-2026 Nutella Cheese pastry 1 0 0 0 0 0 1
+03-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+03-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 1
+03-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 1 0
+03-Jul-2026 Butterscotch (1/2 Kg) 0 0 0 1 0 0 1
+03-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+03-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 1 0
+03-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 1 0
+03-Jul-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 1
+03-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+03-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+03-Jul-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 1 0
+03-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+03-Jul-2026 Classic Pineapple Pastry 3 5 0 0 0 0 5
+03-Jul-2026 Black Forest Pastry 1 1 0 0 0 0 3
+03-Jul-2026 Chocolate Truffle Pastry 6 1 0 2 0 0 2
+03-Jul-2026 Red Velvet Pastry 1 0 0 0 0 1 2
+03-Jul-2026 Blueberry Pastry 2 0 0 0 0 1 2
+03-Jul-2026 Rainbow Pastry 2 0 0 0 0 1 2
+03-Jul-2026 Biscoff cheese Pastry 1 0 0 0 0 0 2
+03-Jul-2026 Blueberry Cheese pastry 3 2 0 2 0 0 1
+03-Jul-2026 Nutella Cheese pastry 1 0 0 2 0 6 0
+04-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+04-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+04-Jul-2026 Pineapple 1/2 Kg 0 1 0 2 0 0 0
+04-Jul-2026 Butterscotch (1/2 Kg) 1 0 0 1 0 0 0
+04-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+04-Jul-2026 Fresh Fruit (1/2 Kg) 0 0 0 1 0 0 0
+04-Jul-2026 Blueberry (1/2 Kg) 0 0 0 1 0 0 0
+04-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+04-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+04-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+04-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 1 0
+04-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+04-Jul-2026 Classic Pineapple Pastry 5 5 0 0 0 0 5
+04-Jul-2026 Black Forest Pastry 3 1 0 0 0 0 3
+04-Jul-2026 Chocolate Truffle Pastry 2 1 0 2 0 0 2
+04-Jul-2026 Red Velvet Pastry 2 0 0 0 0 1 2
+04-Jul-2026 Blueberry Pastry 2 0 0 0 0 1 2
+04-Jul-2026 Rainbow Pastry 2 0 0 0 0 1 2
+04-Jul-2026 Biscoff cheese Pastry 2 0 0 0 0 0 2
+04-Jul-2026 Blueberry Cheese pastry 1 2 0 2 0 0 1
+04-Jul-2026 Nutella Cheese pastry 0 0 0 2 0 6 0
+05-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+05-Jul-2026 Chocolate Truffle 1 Kg 1 0 0 0 0 0 1
+05-Jul-2026 Pineapple 1/2 Kg 0 2 0 1 0 0 1
+05-Jul-2026 Butterscotch (1/2 Kg) 0 2 0 1 0 0 1
+05-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+05-Jul-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 0 1
+05-Jul-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+05-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+05-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+05-Jul-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+05-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+05-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+05-Jul-2026 Classic Pineapple Pastry 5 1 0 6 0 0 0
+05-Jul-2026 Black Forest Pastry 3 1 0 0 0 0 4
+05-Jul-2026 Chocolate Truffle Pastry 2 5 0 1 0 0 6
+05-Jul-2026 Red Velvet Pastry 2 0 0 0 0 0 2
+05-Jul-2026 Blueberry Pastry 2 1 0 0 0 0 3
+05-Jul-2026 Rainbow Pastry 2 2 0 0 0 0 4
+05-Jul-2026 Biscoff cheese Pastry 2 1 0 0 0 0 3
+05-Jul-2026 Blueberry Cheese pastry 1 2 0 0 0 0 3
+05-Jul-2026 Nutella Cheese pastry 0 3 0 0 0 0 3
+
+SEC 88 DATA :
+Date ITEM NAME Open Recv O.Rec Sold Test Waste CLOSING
+20-Jun-2026 chocolate truffle 1/2kg 0 0 0 0 0 0 0
+20-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Pineapple 1/2 Kg 0 1 0 1 0 0 0
+20-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 0 0 0 1
+20-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+20-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+20-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 0
+20-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+20-Jun-2026 Classic Pineapple Pastry 2 2 0 3 0 0 1
+20-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+20-Jun-2026 Chocolate Truffle Pastry 2 2 0 2 0 0 2
+20-Jun-2026 Red Velvet Pastry 1 0 0 1 0 0 0
+20-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 1
+20-Jun-2026 Rainbow Pastry 1 1 0 1 0 0 1
+20-Jun-2026 Blueberry Cheese pastry 0 1 0 1 0 0 0
+20-Jun-2026 Nutella Cheese pastry 0 0 0 0 0 0 0
+21-Jun-2026 chocolate truffle 1/2kg 0 1 0 0 0 0 1
+21-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Pineapple 1/2 Kg 0 1 0 0 0 0 1
+21-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+21-Jun-2026 Vanilla 1/2 Kg 0 1 0 1 0 0 0
+21-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+21-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+21-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 0 0 0 1
+21-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+21-Jun-2026 Classic Pineapple Pastry 1 2 0 2 0 0 1
+21-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+21-Jun-2026 Chocolate Truffle Pastry 2 2 0 2 0 0 2
+21-Jun-2026 Red Velvet Pastry 0 1 0 1 0 0 0
+21-Jun-2026 Blueberry Pastry 1 1 0 1 0 0 1
+21-Jun-2026 Rainbow Pastry 1 1 0 1 0 0 1
+21-Jun-2026 Blueberry Cheese pastry 0 1 0 1 0 0 0
+21-Jun-2026 Nutella Cheese pastry 0 1 0 1 0 0 0
+22-Jun-2026 chocolate truffle 1/2kg 1 0 0 1 0 0 0
+22-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Pineapple 1/2 Kg 1 0 0 1 0 0 0
+22-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 1 0 0 0
+22-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Black Forest 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Red Velvet (1/2 Kg) 0 0 0 0 0 0 0
+22-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 1 0 0 0
+22-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+22-Jun-2026 Classic Pineapple Pastry 1 1 0 1 0 0 1
+22-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+22-Jun-2026 Chocolate Truffle Pastry 2 2 0 2 0 0 2
+22-Jun-2026 Red Velvet Pastry 0 1 0 1 0 0 0
+22-Jun-2026 Blueberry Pastry 1 1 0 1 0 0 1
+22-Jun-2026 Rainbow Pastry 1 1 0 1 0 0 1
+22-Jun-2026 Blueberry Cheese pastry 0 1 0 0 0 0 1
+22-Jun-2026 Nutella Cheese pastry 0 1 0 0 0 0 1
+23-Jun-2026 chocolate truffle 1/2kg 0 1 0 0 0 0 1
+23-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Pineapple 1/2 Kg 0 1 0 1 0 0 0
+23-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 0 0 0 1
+23-Jun-2026 Vanilla 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Fresh Fruit (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Blueberry (1/2 Kg) 0 0 0 0 0 0 0
+23-Jun-2026 Tiramisu 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+23-Jun-2026 Red Velvet (1/2 Kg) 0 1 0 0 0 0 1
+23-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+23-Jun-2026 Classic Pineapple Pastry 1 1 0 1 0 0 1
+23-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+23-Jun-2026 Chocolate Truffle Pastry 2 2 0 2 0 0 2
+23-Jun-2026 Red Velvet Pastry 0 1 0 1 0 0 0
+23-Jun-2026 Blueberry Pastry 1 1 0 1 0 0 1
+23-Jun-2026 Rainbow Pastry 1 1 0 1 0 0 1
+23-Jun-2026 Blueberry Cheese pastry 1 1 0 1 0 0 1
+23-Jun-2026 Nutella Cheese pastry 1 1 0 0 0 0 2
+24-Jun-2026 chocolate truffle 1/2kg 1 2 0 1 0 0 2
+24-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+24-Jun-2026 Pineapple 1/2 Kg 0 1 0 0 0 0 1
+24-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+24-Jun-2026 Vanilla 1/2 Kg 0 1 0 0 0 0 1
+24-Jun-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 1 0
+24-Jun-2026 Blueberry (1/2 Kg) 0 1 0 1 0 0 0
+24-Jun-2026 Tiramisu 1/2 Kg 0 1 0 0 0 0 1
+24-Jun-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+24-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 1 0
+24-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 0
+24-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+24-Jun-2026 Classic Pineapple Pastry 1 2 0 0 0 1 2
+24-Jun-2026 Black Forest Pastry 2 1 0 0 0 1 2
+24-Jun-2026 Chocolate Truffle Pastry 2 6 0 1 0 0 7
+24-Jun-2026 Red Velvet Pastry 0 2 0 1 0 0 1
+24-Jun-2026 Blueberry Pastry 1 2 0 1 0 0 2
+24-Jun-2026 Rainbow Pastry 1 2 0 1 0 0 2
+24-Jun-2026 Blueberry Cheese pastry 1 1 0 1 0 0 1
+24-Jun-2026 Nutella Cheese pastry 2 1 0 1 0 0 2
+25-Jun-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+25-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+25-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Butterscotch (1/2 Kg) 1 1 0 1 0 0 1
+25-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Fresh Fruit (1/2 Kg) 0 1 0 1 0 0 0
+25-Jun-2026 Blueberry (1/2 Kg) 0 1 0 0 0 0 1
+25-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+25-Jun-2026 Black Forest 1/2 Kg 0 1 0 0 0 0 1
+25-Jun-2026 Red Velvet (1/2 Kg) 0 1 0 1 0 0 0
+25-Jun-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 0 0 0 1
+25-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+25-Jun-2026 Classic Pineapple Pastry 2 0 0 0 0 0 2
+25-Jun-2026 Black Forest Pastry 2 0 0 0 0 0 2
+25-Jun-2026 Chocolate Truffle Pastry 7 0 0 1 0 0 6
+25-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+25-Jun-2026 Blueberry Pastry 2 0 0 1 0 0 1
+25-Jun-2026 Rainbow Pastry 2 0 0 1 0 0 1
+25-Jun-2026 Blueberry Cheese pastry 1 1 0 0 0 1 1
+25-Jun-2026 Nutella Cheese pastry 2 1 0 1 0 0 2
+26-Jun-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+26-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+26-Jun-2026 Pineapple 1/2 Kg 1 1 0 1 0 0 1
+26-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+26-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+26-Jun-2026 Fresh Fruit (1/2 Kg) 0 1 0 0 0 0 1
+26-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+26-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+26-Jun-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+26-Jun-2026 Red Velvet (1/2 Kg) 0 1 0 0 0 0 1
+26-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+26-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+26-Jun-2026 Classic Pineapple Pastry 2 0 0 1 0 0 1
+26-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+26-Jun-2026 Chocolate Truffle Pastry 6 1 0 3 0 0 4
+26-Jun-2026 Red Velvet Pastry 1 1 0 1 0 0 1
+26-Jun-2026 Blueberry Pastry 1 1 0 1 0 0 1
+26-Jun-2026 Rainbow Pastry 1 1 0 1 0 0 1
+26-Jun-2026 Blueberry Cheese pastry 1 1 0 0 0 0 2
+26-Jun-2026 Nutella Cheese pastry 2 1 0 1 0 0 2
+27-Jun-2026 chocolate truffle 1/2kg 2 0 0 1 0 0 1
+27-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+27-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 1 0
+27-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+27-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+27-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Black Forest 1/2 Kg 0 1 0 0 0 0 1
+27-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+27-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+27-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+27-Jun-2026 Classic Pineapple Pastry 1 1 0 0 0 0 2
+27-Jun-2026 Black Forest Pastry 2 0 0 0 0 0 2
+27-Jun-2026 Chocolate Truffle Pastry 4 0 0 1 0 1 2
+27-Jun-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+27-Jun-2026 Blueberry Pastry 1 0 0 0 0 0 1
+27-Jun-2026 Rainbow Pastry 1 0 0 0 0 0 1
+27-Jun-2026 Blueberry Cheese pastry 2 0 0 1 0 1 0
+27-Jun-2026 Nutella Cheese pastry 2 0 0 0 0 0 2
+28-Jun-2026 chocolate truffle 1/2kg 1 0 0 0 0 0 1
+28-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Pineapple 1/2 Kg 1 0 0 0 0 1 0
+28-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+28-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 1 0
+28-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+28-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+28-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+28-Jun-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+28-Jun-2026 Red Velvet (1/2 Kg) 1 0 0 0 0 0 1
+28-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+28-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+28-Jun-2026 Classic Pineapple Pastry 2 2 0 1 0 0 3
+28-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+28-Jun-2026 Chocolate Truffle Pastry 2 4 0 1 0 0 5
+28-Jun-2026 Red Velvet Pastry 1 1 0 1 0 0 1
+28-Jun-2026 Blueberry Pastry 1 1 0 1 0 0 1
+28-Jun-2026 Rainbow Pastry 1 1 0 1 0 0 1
+28-Jun-2026 Blueberry Cheese pastry 0 1 0 0 0 0 1
+28-Jun-2026 Nutella Cheese pastry 2 0 0 0 0 0 2
+29-Jun-2026 chocolate truffle 1/2kg 1 1 0 0 0 0 2
+29-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+29-Jun-2026 Pineapple 1/2 Kg 0 1 0 1 0 0 0
+29-Jun-2026 Butterscotch (1/2 Kg) 0 0 0 0 0 0 0
+29-Jun-2026 Vanilla 1/2 Kg 0 1 0 0 0 0 1
+29-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+29-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+29-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+29-Jun-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+29-Jun-2026 Red Velvet (1/2 Kg) 1 1 0 0 0 0 2
+29-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+29-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+29-Jun-2026 Classic Pineapple Pastry 3 1 0 1 0 0 3
+29-Jun-2026 Black Forest Pastry 2 1 0 1 0 0 2
+29-Jun-2026 Chocolate Truffle Pastry 5 2 0 1 0 0 6
+29-Jun-2026 Red Velvet Pastry 1 1 0 0 0 0 2
+29-Jun-2026 Blueberry Pastry 1 1 0 0 0 0 2
+29-Jun-2026 Rainbow Pastry 1 1 0 0 0 0 2
+29-Jun-2026 Blueberry Cheese pastry 1 1 0 0 0 0 2
+29-Jun-2026 Nutella Cheese pastry 2 1 0 1 0 0 2
+30-Jun-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+30-Jun-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+30-Jun-2026 Pineapple 1/2 Kg 0 1 0 0 0 0 1
+30-Jun-2026 Butterscotch (1/2 Kg) 0 1 0 0 0 0 1
+30-Jun-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+30-Jun-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+30-Jun-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Black Forest 1/2 Kg 1 0 0 1 0 0 0
+30-Jun-2026 Red Velvet (1/2 Kg) 2 0 0 1 0 0 1
+30-Jun-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+30-Jun-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+30-Jun-2026 Classic Pineapple Pastry 3 0 0 1 0 0 2
+30-Jun-2026 Black Forest Pastry 2 0 0 1 0 0 1
+30-Jun-2026 Chocolate Truffle Pastry 6 0 0 2 0 0 4
+30-Jun-2026 Red Velvet Pastry 2 0 0 1 0 0 1
+30-Jun-2026 Blueberry Pastry 2 0 0 1 0 0 1
+30-Jun-2026 Rainbow Pastry 2 0 0 1 0 0 1
+30-Jun-2026 Blueberry Cheese pastry 2 0 0 1 0 0 1
+30-Jun-2026 Nutella Cheese pastry 2 0 0 1 0 0 1
+01-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+01-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+01-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+01-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Black Forest 1/2 Kg 0 1 0 0 0 0 1
+01-Jul-2026 Red Velvet (1/2 Kg) 1 1 0 0 0 0 2
+01-Jul-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+01-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+01-Jul-2026 Classic Pineapple Pastry 2 0 0 1 0 0 1
+01-Jul-2026 Black Forest Pastry 1 1 0 1 0 0 1
+01-Jul-2026 Chocolate Truffle Pastry 4 0 0 1 0 0 3
+01-Jul-2026 Red Velvet Pastry 1 1 0 1 0 0 1
+01-Jul-2026 Blueberry Pastry 1 1 0 1 0 0 1
+01-Jul-2026 Rainbow Pastry 1 1 0 1 0 0 1
+01-Jul-2026 Blueberry Cheese pastry 1 1 0 1 0 0 1
+01-Jul-2026 Nutella Cheese pastry 1 1 0 1 0 0 1
+02-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+02-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 0 1
+02-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Red Velvet (1/2 Kg) 2 0 0 0 0 0 2
+02-Jul-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 0 1
+02-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+02-Jul-2026 Classic Pineapple Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Black Forest Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Chocolate Truffle Pastry 3 0 0 0 0 0 3
+02-Jul-2026 Red Velvet Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Blueberry Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Rainbow Pastry 1 0 0 0 0 0 1
+02-Jul-2026 Blueberry Cheese pastry 1 0 0 0 0 0 1
+02-Jul-2026 Nutella Cheese pastry 1 0 0 0 0 0 1
+03-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+03-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+03-Jul-2026 Pineapple 1/2 Kg 1 0 0 0 0 1 0
+03-Jul-2026 Butterscotch (1/2 Kg) 1 0 0 0 0 1 0
+03-Jul-2026 Vanilla 1/2 Kg 1 0 0 0 0 1 0
+03-Jul-2026 Fresh Fruit (1/2 Kg) 1 0 0 0 0 1 0
+03-Jul-2026 Blueberry (1/2 Kg) 1 0 0 0 0 1 0
+03-Jul-2026 Tiramisu 1/2 Kg 1 0 0 0 0 1 0
+03-Jul-2026 Black Forest 1/2 Kg 1 0 0 0 0 1 0
+03-Jul-2026 Red Velvet (1/2 Kg) 2 0 0 0 0 1 1
+03-Jul-2026 Fresh mango/Strawberry 1/2 Kg 1 0 0 0 0 1 0
+03-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+03-Jul-2026 Classic Pineapple Pastry 1 1 0 1 0 0 1
+03-Jul-2026 Black Forest Pastry 1 1 0 1 0 0 1
+03-Jul-2026 Chocolate Truffle Pastry 3 1 0 1 0 0 3
+03-Jul-2026 Red Velvet Pastry 1 1 0 1 0 0 1
+03-Jul-2026 Blueberry Pastry 1 1 0 1 0 0 1
+03-Jul-2026 Rainbow Pastry 1 1 0 1 0 0 1
+03-Jul-2026 Blueberry Cheese pastry 1 1 0 1 0 0 1
+03-Jul-2026 Nutella Cheese pastry 1 1 0 1 0 0 1
+04-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+04-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+04-Jul-2026 Pineapple 1/2 Kg 0 1 0 1 0 0 0
+04-Jul-2026 Butterscotch (1/2 Kg) 0 1 0 1 0 0 0
+04-Jul-2026 Vanilla 1/2 Kg 0 1 0 1 0 0 0
+04-Jul-2026 Fresh Fruit (1/2 Kg) 0 1 0 1 0 0 0
+04-Jul-2026 Blueberry (1/2 Kg) 0 1 0 1 0 0 0
+04-Jul-2026 Tiramisu 1/2 Kg 0 1 0 1 0 0 0
+04-Jul-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+04-Jul-2026 Red Velvet (1/2 Kg) 1 1 0 1 0 0 1
+04-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 0
+04-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+04-Jul-2026 Classic Pineapple Pastry 1 1 0 1 0 0 1
+04-Jul-2026 Black Forest Pastry 1 1 0 1 0 0 1
+04-Jul-2026 Chocolate Truffle Pastry 3 1 0 1 0 0 3
+04-Jul-2026 Red Velvet Pastry 1 1 0 1 0 0 1
+04-Jul-2026 Blueberry Pastry 1 1 0 1 0 0 1
+04-Jul-2026 Rainbow Pastry 1 1 0 1 0 0 1
+04-Jul-2026 Blueberry Cheese pastry 1 1 0 1 0 0 1
+04-Jul-2026 Nutella Cheese pastry 1 1 0 1 0 0 1
+05-Jul-2026 chocolate truffle 1/2kg 2 0 0 0 0 0 2
+05-Jul-2026 Chocolate Truffle 1 Kg 0 0 0 0 0 0 0
+05-Jul-2026 Pineapple 1/2 Kg 0 2 0 1 0 0 1
+05-Jul-2026 Butterscotch (1/2 Kg) 0 2 0 1 0 0 1
+05-Jul-2026 Vanilla 1/2 Kg 0 1 0 1 0 0 0
+05-Jul-2026 Fresh Fruit (1/2 Kg) 0 1 0 1 0 0 0
+05-Jul-2026 Blueberry (1/2 Kg) 0 1 0 1 0 0 0
+05-Jul-2026 Tiramisu 1/2 Kg 0 1 0 1 0 0 0
+05-Jul-2026 Black Forest 1/2 Kg 0 1 0 1 0 0 0
+05-Jul-2026 Red Velvet (1/2 Kg) 1 1 0 1 0 0 1
+05-Jul-2026 Fresh mango/Strawberry 1/2 Kg 0 1 0 1 0 0 0
+05-Jul-2026 Ferro Rocher 1/2 Kg 0 0 0 0 0 0 0
+05-Jul-2026 Classic Pineapple Pastry 1 3 0 1 0 0 3
+05-Jul-2026 Black Forest Pastry 1 1 0 1 0 0 1
+05-Jul-2026 Chocolate Truffle Pastry 3 3 0 3 0 0 3
+05-Jul-2026 Red Velvet Pastry 1 2 0 2 0 0 1
+05-Jul-2026 Blueberry Pastry 1 2 0 2 0 0 1
+05-Jul-2026 Rainbow Pastry 1 2 0 2 0 0 1
+05-Jul-2026 Blueberry Cheese pastry 1 2 0 2 0 0 1
+05-Jul-2026 Nutella Cheese pastry 1 2 0 2 0 0 1

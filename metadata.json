@@ -1,0 +1,10 @@
+{
+  "name": "Remix: BROOMIES",
+  "description": "Stock management system for BROOMIES. Made by Abhishek.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
