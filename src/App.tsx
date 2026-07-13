@@ -84,7 +84,6 @@ import {
   TRANSFERS_OLD_COL,
   COLD_ROOM_OLD_COL
 } from './lib/firebase';
-import { LedgerSheetComponent } from './components/LedgerSheetComponent';
 import { DateWiseClosingComponent } from './components/DateWiseClosingComponent';
 import { StockComparisonComponent } from './components/StockComparisonComponent';
 import { 
@@ -178,17 +177,15 @@ interface Recipe {
 }
 
 type UserRole = 'admin' | 'outlet';
-type View = 'dashboard' | 'items' | 'history' | 'reports' | 'management' | 'lifecycle' | 'production' | 'prediction' | 'distribution' | 'globalClosing' | 'requirements' | 'smartTransfer' | 'ledgerSheet' | 'dateWiseClosing' | 'stockComparison';
+type View = 'dashboard' | 'items' | 'history' | 'reports' | 'management' | 'lifecycle' | 'production' | 'prediction' | 'distribution' | 'globalClosing' | 'smartTransfer' | 'dateWiseClosing' | 'stockComparison';
 
 // --- Components ---
 const Sidebar = React.memo(({ view, setView, selectedOutletId, setSelectedOutletId, onLogout, userRole, isOpen, setIsOpen, onExport }: any) => {
   const menuItems = [
     { id: 'dashboard', label: 'Outlet Console', icon: <LayoutDashboard size={16} />, roles: ['admin', 'outlet', 'manager'] },
     { id: 'dateWiseClosing', label: 'Date-Wise Closing Entry', icon: <Clock size={16} />, roles: ['admin', 'outlet', 'manager'] },
-    { id: 'ledgerSheet', label: 'Outlets Ledger & Returns', icon: <FileSpreadsheet size={16} />, roles: ['admin', 'outlet', 'manager', 'production'] },
     { id: 'stockComparison', label: 'Stock Comparison', icon: <ArrowRightLeft size={16} />, roles: ['admin', 'manager'] },
     { id: 'smartTransfer', label: 'Smart Scan Transfer', icon: <Scan size={16} />, roles: ['admin'] },
-    { id: 'requirements', label: 'Requirements', icon: <FileSpreadsheet size={16} />, roles: ['admin', 'outlet', 'manager'] },
     { id: 'production', label: 'Kitchen Console', icon: <ChefHat size={16} />, roles: ['admin', 'production'] },
     { id: 'distribution', label: 'Dispatch Log', icon: <Truck size={16} />, roles: ['admin', 'production', 'manager'] },
     { id: 'lifecycle', label: 'Expiry & FIFO', icon: <Clock size={16} />, roles: ['admin', 'manager'] },
@@ -290,7 +287,7 @@ const Sidebar = React.memo(({ view, setView, selectedOutletId, setSelectedOutlet
   );
 });
 
-const ManagementComponent = React.memo(({ permissions, updatePermission, setIsSidebarOpen, recalculateStockChain }: any) => {
+const ManagementComponent = React.memo(({ permissions, updatePermission, setIsSidebarOpen, recalculateStockChain, wipeAllAppData }: any) => {
   return (
     <div className="p-4 md:p-12 bg-white h-full overflow-y-auto">
       <div className="border-b-2 border-brand-text pb-6 mb-8 flex items-center gap-4">
@@ -298,22 +295,39 @@ const ManagementComponent = React.memo(({ permissions, updatePermission, setIsSi
           <Menu size={20} />
         </button>
         <div>
-          <h2 className="text-2xl md:text-4xl font-brand-serif italic mb-1 uppercase tracking-tight">Outlet Approvals</h2>
-          <p className="text-[10px] font-bold uppercase tracking-[.3em] opacity-60">Authorize data entry permission</p>
+          <h2 className="text-2xl md:text-4xl font-brand-serif italic mb-1 uppercase tracking-tight">Outlet Approvals & Admin</h2>
+          <p className="text-[10px] font-bold uppercase tracking-[.3em] opacity-60">Authorize data entry permission and system tools</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-        <div className="col-span-full border-2 border-dashed border-brand-text/20 p-6 bg-amber-50/30 flex flex-col items-center justify-center text-center">
-          <RefreshCw size={32} className="text-brand-text mb-4 opacity-40" />
-          <h3 className="text-xl font-brand-serif italic mb-2">System Integrity Tool</h3>
-          <p className="text-xs max-w-lg mb-6 opacity-60">If inventory numbers seem mismatched across days (e.g. yesterday's closing doesn't match today's opening), use this tool to re-calculate and synchronize the entire stock chain.</p>
-          <button 
-            onClick={recalculateStockChain}
-            className="px-8 py-3 bg-brand-text text-white font-black uppercase text-xs tracking-[.2em] shadow-xl active:scale-95 transition-all flex items-center gap-3 hover:bg-black"
-          >
-            <ShieldCheck size={16} /> Recalculate All Opening Balances
-          </button>
+        <div className="col-span-full border-2 border-dashed border-brand-text/20 p-6 bg-stone-50 flex flex-col md:flex-row gap-8 items-center justify-between text-left">
+          <div className="max-w-2xl">
+            <h3 className="text-xl font-brand-serif italic mb-2 flex items-center gap-2">
+              <RefreshCw size={20} className="text-brand-text animate-spin-slow" />
+              System Integrity Tool
+            </h3>
+            <p className="text-xs mb-4 opacity-60">If inventory numbers seem mismatched across days (e.g. yesterday's closing doesn't match today's opening), use this tool to re-calculate and synchronize the entire stock chain.</p>
+            <button 
+              onClick={recalculateStockChain}
+              className="px-6 py-2.5 bg-brand-text text-white font-black uppercase text-[10px] tracking-[.15em] shadow-md active:scale-95 transition-all flex items-center gap-2 hover:bg-black"
+            >
+              <ShieldCheck size={14} /> Recalculate Opening Balances
+            </button>
+          </div>
+
+          <div className="border-t md:border-t-0 md:border-l border-brand-border pt-6 md:pt-0 md:pl-8 w-full md:w-auto shrink-0 flex flex-col justify-center">
+            <h3 className="text-md font-brand-serif italic mb-2 text-red-700 flex items-center gap-1.5 font-bold">
+              ⚠️ Hard Factory Reset
+            </h3>
+            <p className="text-xs mb-4 opacity-60 max-w-sm">Permanently wipe all items, recipes, ingredients, and logs to start fresh with a clean application.</p>
+            <button 
+              onClick={wipeAllAppData}
+              className="px-6 py-2.5 bg-red-600 text-white font-black uppercase text-[10px] tracking-[.15em] shadow-md active:scale-95 transition-all flex items-center gap-2 hover:bg-red-700 w-full justify-center md:w-auto"
+            >
+              🗑️ Delete All Stored Data
+            </button>
+          </div>
         </div>
         {OUTLETS.map(outlet => {
           const p = permissions[outlet.id] || { 
@@ -399,12 +413,12 @@ const DashboardRowCell = React.memo(({
   };
 
   const handleKeyDownInternal = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      if (localValue !== value) {
-        onChange(localValue);
-      }
+    if (e.key === 'Enter' || e.keyCode === 13) {
       if (onKeyDown) {
         onKeyDown(e);
+      }
+      if (localValue !== value) {
+        onChange(localValue);
       }
     } else if (onKeyDown) {
       onKeyDown(e);
@@ -836,20 +850,20 @@ const DashboardRow = React.memo(({
       {/* Mobile Row */}
       <div className={`md:hidden flex items-center p-4 border-b border-brand-border transition-colors ${!isEven ? 'bg-[#F7F7F7]' : 'bg-white'}`}>
         <div className="flex-1 min-w-0 pr-4">
-          <h4 className="font-bold text-xs text-brand-text uppercase truncate">{item.name}</h4>
-          <p className="text-[9px] opacity-40 font-bold tracking-widest">{item.category}</p>
+          <h4 className="font-black text-xs text-brand-text uppercase truncate leading-tight">{item.name}</h4>
+          <p className="text-[9px] opacity-40 font-bold tracking-wider">{item.category}</p>
           <div className="mt-1.5 flex gap-3 text-[9px] font-black uppercase text-brand-text/60">
             <span>Open: {data.opening}</span>
             <span className={data.closing < 0 ? 'text-red-600' : ''}>End: {data.closing}</span>
           </div>
         </div>
 
-        <div className="shrink-0 flex items-center gap-1">
+        <div className="shrink-0 flex items-center gap-1.5">
           <div className="relative">
             {mobileMetric === 'transf_out_to' ? (
               <select 
                 disabled={!canEditField('transf_out')}
-                className="w-20 h-10 border border-brand-border bg-white text-[10px] font-bold uppercase pl-2 outline-none appearance-none font-black"
+                className="w-24 h-11 border border-brand-border bg-white text-[10px] font-black uppercase pl-2 outline-none appearance-none rounded-sm"
                 value={effectiveTransfOutTo}
                 onChange={(e) => {
                   if (e.target.value) {
@@ -874,9 +888,9 @@ const DashboardRow = React.memo(({
                   }
                 }}
                 disabled={!data.transf_in_sources || data.transf_in_sources.length === 0}
-                className={`w-20 h-10 border border-brand-border bg-white text-center font-black text-xs outline-none transition-all ${
+                className={`w-24 h-11 border border-brand-border bg-white text-center font-black text-xs outline-none transition-all rounded-sm ${
                   data.transf_in_sources && data.transf_in_sources.length > 0
-                    ? 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100 underline decoration-dotted'
+                    ? 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100 underline decoration-dotted font-black'
                     : 'text-slate-400'
                 }`}
               >
@@ -888,7 +902,7 @@ const DashboardRow = React.memo(({
                   dataRow={idx}
                   dataCol={mobileMetric}
                   readOnly={!canEditField(mobileMetric) || (mobileMetric === 'sold' && data.calculationMode === 'closing' && userRole !== 'admin') || (mobileMetric === 'closing' && data.calculationMode === 'sold' && userRole !== 'admin')}
-                  className={`w-20 h-10 border border-brand-border bg-white text-center font-black text-xs outline-none transition-all focus:ring-2 focus:ring-brand-text ${(!canEditField(mobileMetric) || (mobileMetric === 'sold' && data.calculationMode === 'closing' && userRole !== 'admin') || (mobileMetric === 'closing' && data.calculationMode === 'sold' && userRole !== 'admin')) ? 'opacity-30' : ''}`}
+                  className={`w-24 h-11 border border-brand-border bg-white text-center font-black text-sm outline-none transition-all rounded-sm focus:ring-2 focus:ring-brand-text ${(!canEditField(mobileMetric) || (mobileMetric === 'sold' && data.calculationMode === 'closing' && userRole !== 'admin') || (mobileMetric === 'closing' && data.calculationMode === 'sold' && userRole !== 'admin')) ? 'opacity-30' : ''}`}
                   value={mobileMetric === 'transf_out' ? displayedTransfOut : data[mobileMetric]}
                   onChange={(val: any) => handleDataChange(item.id, mobileMetric, val)}
                   onKeyDown={(e: any) => handleKeyDown(e, item, idx, mobileMetric)}
@@ -896,9 +910,9 @@ const DashboardRow = React.memo(({
                 {(mobileMetric === 'sold' || mobileMetric === 'closing') && (
                   <button 
                     onClick={() => handleDataChange(item.id, 'calculationMode', mobileMetric)}
-                    className="absolute -top-3 -left-3 w-6 h-6 bg-white border border-brand-border rounded-full flex items-center justify-center shadow-sm z-10"
+                    className="absolute -top-2.5 -left-2.5 w-5 h-5 bg-white border border-brand-border rounded-full flex items-center justify-center shadow-sm z-10"
                   >
-                    <div className={`w-2 h-2 rounded-full ${data.calculationMode === mobileMetric ? 'bg-green-600' : 'bg-slate-300'}`} />
+                    <div className={`w-1.5 h-1.5 rounded-full ${data.calculationMode === mobileMetric ? 'bg-green-600' : 'bg-slate-300'}`} />
                   </button>
                 )}
               </div>
@@ -916,9 +930,9 @@ const DashboardRow = React.memo(({
                   handleDataChange(item.id, mobileMetric, currentVal + 1);
                }}
                disabled={(!canEditField(mobileMetric) || (mobileMetric === 'sold' && data.calculationMode === 'closing') || (mobileMetric === 'closing' && data.calculationMode === 'sold'))}
-               className={`w-10 h-10 bg-brand-text text-white flex items-center justify-center active:scale-90 transition-transform shadow-md rounded-sm ${(!canEditField(mobileMetric) || (mobileMetric === 'sold' && data.calculationMode === 'closing') || (mobileMetric === 'closing' && data.calculationMode === 'sold')) ? 'opacity-20 grayscale cursor-not-allowed' : ''}`}
+               className={`w-11 h-11 bg-brand-text text-white flex items-center justify-center active:scale-90 transition-transform shadow-sm rounded-sm shrink-0 ${(!canEditField(mobileMetric) || (mobileMetric === 'sold' && data.calculationMode === 'closing') || (mobileMetric === 'closing' && data.calculationMode === 'sold')) ? 'opacity-20 grayscale cursor-not-allowed' : ''}`}
             >
-              <Plus size={14} />
+              <Plus size={16} />
             </button>
           )}
         </div>
@@ -977,6 +991,7 @@ const DashboardComponent = React.memo(({
 }: any) => {
   const [mobileMetric, setMobileMetric] = useState<string>('sold');
   const [selectedTransfer, setSelectedTransfer] = useState<{ itemId: string; itemName: string; sources: any[] } | null>(null);
+  const [isAiOpenMobile, setIsAiOpenMobile] = useState(false);
 
   const handleRejectSource = useCallback(async (fromOutletId: string) => {
     if (selectedTransfer && handleRejectTransferReceived) {
@@ -1187,14 +1202,23 @@ const DashboardComponent = React.memo(({
   const handleKeyDown = useCallback((e: React.KeyboardEvent, item: any, rowIdx: number, colKey: string) => {
     const columns = ['opening', 'received', 'sold', 'testing', 'wastage', 'transf_out', 'closing'];
 
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.keyCode === 13) {
       e.preventDefault();
       // On small screens, move down. On wide screens, try to move right or down.
       // High-speed data entry: Move to next row
       const nextRow = document.querySelector(`input[data-row="${rowIdx + 1}"][data-col="${colKey}"]`) as HTMLInputElement;
       if (nextRow) {
         nextRow.focus();
-        nextRow.select(); // Better UX for editing
+        try {
+          nextRow.select();
+        } catch (err) {}
+        // Backup timeout to maintain focus after parent states update on mobile
+        setTimeout(() => {
+          nextRow.focus();
+          try {
+            nextRow.select();
+          } catch (err) {}
+        }, 20);
       } else {
         // Wrap around to first row? No, maybe try next column
         const nextColIdx = columns.indexOf(colKey) + 1;
@@ -1202,7 +1226,15 @@ const DashboardComponent = React.memo(({
            const firstRowNextCol = document.querySelector(`input[data-row="0"][data-col="${columns[nextColIdx]}"]`) as HTMLInputElement;
            if (firstRowNextCol) {
              firstRowNextCol.focus();
-             firstRowNextCol.select();
+             try {
+               firstRowNextCol.select();
+             } catch (err) {}
+             setTimeout(() => {
+               firstRowNextCol.focus();
+               try {
+                 firstRowNextCol.select();
+               } catch (err) {}
+             }, 20);
            }
         }
       }
@@ -1374,54 +1406,72 @@ const DashboardComponent = React.memo(({
         </motion.div>
       )}
 
-      {/* AI Section - Compact on mobile */}
-      <section className="p-4 md:p-6 border-b border-brand-border bg-brand-secondary shrink-0">
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch md:items-start">
-          <div className="flex-1">
-            <div className="flex items-center justify-between mb-1.5">
-              <label className="text-[9px] md:text-[10px] uppercase font-bold opacity-60">Smart Bulk Entry</label>
-              <div className="flex items-center gap-1.5 bg-blue-50 px-2 py-0.5 border border-blue-200 rounded text-[9px] md:text-[10px] text-blue-700 font-bold uppercase tracking-wider">
-                <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse"></span>
-                🤖 Gemini 2.5 Flash AI Enabled
-              </div>
-            </div>
-            <textarea 
-              className="w-full h-16 md:h-20 p-3 bg-white border border-brand-border font-brand-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-brand-text resize-none shadow-inner"
-              placeholder="Type in any format or language (e.g. 'give four truffles, 1 pineapple, and black forest 3'). Gemini AI will parse it instantly!"
-              value={bulkText}
-              onChange={(e) => setBulkText(e.target.value)}
-            />
+      {/* AI Section - Collapsible on mobile */}
+      <section className="border-b border-brand-border bg-brand-secondary shrink-0">
+        <div 
+          className="md:hidden flex items-center justify-between p-3.5 cursor-pointer select-none bg-stone-100 hover:bg-stone-200/50 transition-colors border-b border-brand-border/40"
+          onClick={() => setIsAiOpenMobile(!isAiOpenMobile)}
+        >
+          <div className="flex items-center gap-2">
+            <Sparkles size={14} className="text-[#4F2C1D]" />
+            <span className="text-[10px] font-black uppercase tracking-wider text-brand-text">🤖 Gemini AI Bulk Data Entry</span>
+            {bulkText.trim() && (
+              <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse"></span>
+            )}
           </div>
-          <div className="w-full md:w-80 grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-3">
-            <div>
-              <select 
-                className="w-full p-2 bg-white border border-brand-border text-[10px] font-black uppercase tracking-tighter"
-                value={bulkMode}
-                onChange={(e) => setBulkMode(e.target.value as any)}
-              >
-                {MOBILE_METRICS.filter(m => m.id !== 'closing').map(m => (
-                  <option key={m.id} value={m.id}>{m.label}</option>
-                ))}
-              </select>
+          <span className="text-[10px] font-black uppercase text-brand-text/60">
+            {isAiOpenMobile ? '▲ Collapse' : '▼ Expand Textbox'}
+          </span>
+        </div>
+        
+        <div className={`${isAiOpenMobile ? 'block animate-fade-in' : 'hidden md:block'} p-4 md:p-6`}>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch md:items-start">
+            <div className="flex-1">
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-[9px] md:text-[10px] uppercase font-bold opacity-60">Smart Bulk Entry</label>
+                <div className="flex items-center gap-1.5 bg-blue-50 px-2 py-0.5 border border-blue-200 rounded text-[9px] md:text-[10px] text-blue-700 font-bold uppercase tracking-wider">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+                  🤖 Gemini 2.5 Flash AI Enabled
+                </div>
+              </div>
+              <textarea 
+                className="w-full h-16 md:h-20 p-3 bg-white border border-brand-border font-brand-mono text-[11px] focus:outline-none focus:ring-1 focus:ring-brand-text resize-none shadow-inner"
+                placeholder="Type in any format or language (e.g. 'give four truffles, 1 pineapple, and black forest 3'). Gemini AI will parse it instantly!"
+                value={bulkText}
+                onChange={(e) => setBulkText(e.target.value)}
+              />
             </div>
-            <div>
-              <select 
-                className="w-full p-2 bg-white border border-brand-border text-[10px] font-black uppercase tracking-tighter"
-                value={bulkAction}
-                onChange={(e) => setBulkAction(e.target.value as any)}
+            <div className="w-full md:w-80 grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-3">
+              <div>
+                <select 
+                  className="w-full p-2 bg-white border border-brand-border text-[10px] font-black uppercase tracking-tighter h-10"
+                  value={bulkMode}
+                  onChange={(e) => setBulkMode(e.target.value as any)}
+                >
+                  {MOBILE_METRICS.filter(m => m.id !== 'closing').map(m => (
+                    <option key={m.id} value={m.id}>{m.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <select 
+                  className="w-full p-2 bg-white border border-brand-border text-[10px] font-black uppercase tracking-tighter h-10"
+                  value={bulkAction}
+                  onChange={(e) => setBulkAction(e.target.value as any)}
+                >
+                  <option value="add">Add (+)</option>
+                  <option value="replace">Replace (=)</option>
+                </select>
+              </div>
+              <button 
+                onClick={handleBulkEntry}
+                disabled={isProcessingAI || !bulkText.trim()}
+                className="h-10 px-4 col-span-2 bg-brand-text text-white hover:bg-opacity-90 active:scale-95 text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
               >
-                <option value="add">Add (+)</option>
-                <option value="replace">Replace (=)</option>
-              </select>
+                {isProcessingAI ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} />}
+                Process Entry
+              </button>
             </div>
-            <button 
-              onClick={handleBulkEntry}
-              disabled={isProcessingAI || !bulkText.trim()}
-              className="h-[34px] px-4 col-span-2 bg-brand-text text-white hover:bg-opacity-90 active:scale-95 text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2"
-            >
-              {isProcessingAI ? <Loader2 size={12} className="animate-spin" /> : <Sparkles size={12} />}
-              Process Entry
-            </button>
           </div>
         </div>
       </section>
@@ -1599,6 +1649,7 @@ const MasterItemsComponent = React.memo(({
   const [newItemName, setNewItemName] = useState('');
   const [newItemBarcode, setNewItemBarcode] = useState('');
   const [newItemCategory, setNewItemCategory] = useState('Others');
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const categories = useMemo(() => Array.from(new Set(items.map((i: any) => i.category))).sort() as string[], [items]);
 
   const filteredCatalog = useMemo(() => {
@@ -1674,8 +1725,62 @@ const MasterItemsComponent = React.memo(({
     setItems(items.map((i: any) => i.id === item.id ? updatedItem : i));
   };
 
-  const deleteItem = async (id: string) => {
-    if (confirm('Are you sure? This will permanently delete the item from the catalog.')) {
+  const compressImageBase64 = (dataUrl: string, maxWidth = 300, maxHeight = 300, quality = 0.85): Promise<string> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = dataUrl;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > maxWidth) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          }
+        } else {
+          if (height > maxHeight) {
+            width = Math.round((width * maxHeight) / height);
+            height = maxHeight;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        } else {
+          resolve(dataUrl);
+        }
+      };
+      img.onerror = () => resolve(dataUrl);
+    });
+  };
+
+  const handleCatalogImageUpload = async (itemId: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        if (typeof reader.result === 'string') {
+          const compressed = await compressImageBase64(reader.result);
+          try {
+            await setDoc(doc(db, 'items', itemId), { image: compressed }, { merge: true });
+          } catch (err) {
+            console.error("Failed to save item image in Firestore:", err);
+          }
+          setItems((prevItems: any) => prevItems.map((i: any) => i.id === itemId ? { ...i, image: compressed } : i));
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const deleteItem = async (id: string, bypassConfirm = false) => {
+    if (bypassConfirm || confirm('Are you sure? This will permanently delete the item from the catalog.')) {
       try {
         await deleteDoc(doc(db, 'items', id));
       } catch (e) {
@@ -1954,6 +2059,21 @@ const MasterItemsComponent = React.memo(({
     return result;
   }, [filteredCatalog, showInactive]);
 
+  const groupedCatalog = useMemo(() => {
+    const groups: { [key: string]: any[] } = {};
+    finalFilteredCatalog.forEach((item: any) => {
+      const cat = item.category || 'Others';
+      if (!groups[cat]) {
+        groups[cat] = [];
+      }
+      groups[cat].push(item);
+    });
+    return Object.keys(groups).sort().reduce((acc, key) => {
+      acc[key] = groups[key];
+      return acc;
+    }, {} as { [key: string]: any[] });
+  }, [finalFilteredCatalog]);
+
   const exportItemsPDF = useCallback(() => {
     const doc = new jsPDF('p', 'mm', 'a4');
     doc.setFontSize(18);
@@ -1986,6 +2106,26 @@ const MasterItemsComponent = React.memo(({
     });
 
     doc.save(`master-items-${format(new Date(), 'yyyy-MM-dd')}.pdf`);
+  }, [finalFilteredCatalog]);
+
+  const exportItemsExcel = useCallback(() => {
+    try {
+      const dataToExport = finalFilteredCatalog.map((item: any, idx: number) => ({
+        "S.No": idx + 1,
+        "ID": item.id,
+        "Name": item.name,
+        "Category": item.category,
+        "Barcode": item.barcode || '-',
+        "Status": (item.status || 'active').toUpperCase()
+      }));
+
+      const ws = XLSX.utils.json_to_sheet(dataToExport);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Catalog Items");
+      XLSX.writeFile(wb, `master-items-${format(new Date(), 'yyyy-MM-dd')}.xlsx`);
+    } catch (err) {
+      console.error("Failed to export catalog as Excel:", err);
+    }
   }, [finalFilteredCatalog]);
 
   return (
@@ -2045,6 +2185,13 @@ const MasterItemsComponent = React.memo(({
           >
             <Download size={14} />
             Export Catalog (PDF)
+          </button>
+          <button 
+            onClick={exportItemsExcel}
+            className="px-4 h-11 text-[9px] font-black uppercase tracking-widest border border-brand-border bg-slate-50 text-emerald-800 hover:bg-emerald-50 hover:border-emerald-500 transition-all flex items-center justify-center gap-2 font-black"
+          >
+            <FileSpreadsheet size={14} />
+            Export Catalog (Excel)
           </button>
           <button 
             disabled={isExportingQR}
@@ -2342,51 +2489,121 @@ const MasterItemsComponent = React.memo(({
              ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0 border-l border-t border-brand-border h-fit">
-            {finalFilteredCatalog.map((item: any) => {
-              const isHighlighted = item.id === highlightedItemId;
-              return (
-                <div 
-                  key={item.id} 
-                  id={`item-card-${item.id}`}
-                  className={`p-4 md:p-5 border-r border-b border-brand-border flex items-center justify-between group transition-all duration-300 ${isHighlighted ? 'bg-emerald-50/60 border-2 border-emerald-500 scale-[1.01] shadow-md ring-2 ring-emerald-500/10' : item.status === 'inactive' ? 'bg-zinc-100 opacity-60' : 'hover:bg-slate-50'}`}
-                >
-                  <div className="flex shrink-0 mr-4">
-                     <QRThumb barcode={item.barcode} />
-                  </div>
-                  <div className="min-w-0 pr-4 flex-1">
-                    <div className="font-bold text-brand-text uppercase leading-none truncate mb-1 text-xs">{item.name}</div>
-                    <div className="text-[8px] text-[#A69D91] font-bold uppercase tracking-widest flex items-center gap-2">
-                      {item.category}
-                      {item.barcode && <span className="bg-brand-text/10 text-brand-text px-1 rounded flex items-center gap-1"><QrCode size={8} /> {item.barcode}</span>}
-                    </div>
-                    <div className="mt-2 flex items-center gap-2">
-                       <input 
-                          type="text" 
-                          placeholder="Set Barcode..."
-                          className="w-full bg-transparent border-b border-brand-border/30 text-[9px] font-brand-mono outline-none focus:border-brand-text transition-colors"
-                          defaultValue={item.barcode || ''}
-                          onBlur={(e) => updateItemBarcode(item.id, e.target.value)}
-                       />
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 pl-4">
-                    <button 
-                      onClick={() => toggleItemStatus(item)}
-                      className={`p-2 text-[8px] font-black uppercase tracking-tighter border rounded-none transition-all ${item.status === 'inactive' ? 'bg-brand-text text-white border-brand-text' : 'bg-white text-zinc-400 border-zinc-200 hover:text-brand-text hover:border-brand-text'}`}
-                    >
-                      {item.status === 'inactive' ? '[ ACTIVATE ]' : '[ DEACTIVATE ]'}
-                    </button>
-                    <button 
-                      onClick={() => deleteItem(item.id)}
-                      className="text-red-400 hover:text-red-600 p-2 md:opacity-0 group-hover:opacity-100 transition-all text-[8px] font-bold shrink-0 uppercase"
-                    >
-                      [ RM ]
-                    </button>
-                  </div>
+          <div className="flex flex-col gap-8">
+            {Object.entries(groupedCatalog).map(([category, catItems]: any) => (
+              <div key={category} className="border-2 border-brand-text bg-white shadow-sm">
+                {/* Category Header */}
+                <div className="bg-brand-text text-white px-4 py-3 flex justify-between items-center">
+                  <h3 className="font-brand-sans font-black uppercase text-xs tracking-wider flex items-center gap-2">
+                    📁 {category}
+                  </h3>
+                  <span className="text-[10px] font-mono font-black bg-white/20 px-2 py-0.5 rounded-full">
+                    {catItems.length} ITEMS
+                  </span>
                 </div>
-              );
-            })}
+                
+                {/* Items List */}
+                <div className="divide-y divide-brand-border">
+                  {catItems.map((item: any) => {
+                    const isHighlighted = item.id === highlightedItemId;
+                    return (
+                      <div 
+                        key={item.id} 
+                        id={`item-card-${item.id}`}
+                        className={`p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-300 ${isHighlighted ? 'bg-emerald-50/60 border-l-4 border-l-emerald-500 scale-[1.005] shadow-sm' : item.status === 'inactive' ? 'bg-zinc-100 opacity-60' : 'hover:bg-slate-50/80 bg-white'}`}
+                      >
+                        <div className="min-w-0 flex-1 flex items-center gap-4">
+                          {/* Image Thumbnail and Upload Trigger */}
+                          <div className="relative w-14 h-14 bg-slate-100 border border-brand-border shrink-0 flex items-center justify-center overflow-hidden group shadow-inner">
+                            {item.image ? (
+                              <>
+                                <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-0.5">
+                                  <Camera size={12} className="text-white" />
+                                  <span className="text-[7px] text-white font-black uppercase tracking-tighter">Change</span>
+                                </div>
+                              </>
+                            ) : (
+                              <div className="flex flex-col items-center gap-0.5 text-slate-400 group-hover:text-brand-text transition-colors">
+                                <Camera size={14} />
+                                <span className="text-[7px] font-black uppercase tracking-tighter">[ Add ]</span>
+                              </div>
+                            )}
+                            <input 
+                              type="file" 
+                              accept="image/*" 
+                              className="absolute inset-0 opacity-0 cursor-pointer" 
+                              onChange={(e) => handleCatalogImageUpload(item.id, e)}
+                            />
+                          </div>
+
+                          <div className="min-w-0 flex-1">
+                            <div className="font-bold text-brand-text uppercase leading-tight mb-1 text-sm">{item.name}</div>
+                            <div className="text-[9px] text-[#A69D91] font-bold uppercase tracking-widest flex items-center gap-2">
+                              <span>ID: {item.id}</span>
+                              {item.barcode && <span className="bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded flex items-center gap-1 font-mono font-black"><QrCode size={10} /> {item.barcode}</span>}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Barcode edit input */}
+                        <div className="shrink-0 w-full sm:w-48">
+                          <div className="text-[8px] font-bold text-stone-400 uppercase mb-1">Set Barcode</div>
+                          <input 
+                            type="text" 
+                            placeholder="Set Barcode..."
+                            className="w-full bg-slate-50 border border-brand-border/40 py-1 px-2 text-[10px] font-brand-mono outline-none focus:border-brand-text focus:bg-white transition-colors uppercase font-bold"
+                            defaultValue={item.barcode || ''}
+                            onBlur={(e) => updateItemBarcode(item.id, e.target.value)}
+                          />
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex items-center gap-2 shrink-0 sm:pl-4 justify-end">
+                          <button 
+                            onClick={() => toggleItemStatus(item)}
+                            className={`px-3 py-1.5 text-[9px] font-black uppercase tracking-wider border transition-all ${item.status === 'inactive' ? 'bg-brand-text text-white border-brand-text' : 'bg-white text-zinc-500 border-zinc-200 hover:text-brand-text hover:border-brand-text'}`}
+                          >
+                            {item.status === 'inactive' ? 'Activate' : 'Deactivate'}
+                          </button>
+                          {confirmDeleteId === item.id ? (
+                            <div className="flex items-center gap-1 bg-red-50 p-0.5 border border-red-200">
+                              <button 
+                                onClick={() => {
+                                  deleteItem(item.id, true);
+                                  setConfirmDeleteId(null);
+                                }}
+                                className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 text-[9px] font-black uppercase transition-all"
+                              >
+                                Confirm
+                              </button>
+                              <button 
+                                onClick={() => setConfirmDeleteId(null)}
+                                className="text-zinc-500 hover:text-brand-text px-1.5 py-1 text-[9px] font-black uppercase"
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          ) : (
+                            <button 
+                              onClick={() => setConfirmDeleteId(item.id)}
+                              className="text-red-500 hover:text-red-700 px-3 py-1.5 hover:bg-red-50 transition-all text-[9px] font-black uppercase border border-transparent"
+                            >
+                              Remove
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+            {Object.keys(groupedCatalog).length === 0 && (
+              <div className="text-center py-12 border-2 border-dashed border-brand-border rounded">
+                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">No Items Found</p>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -2426,6 +2643,75 @@ const HistoryPanelComponent = React.memo(({
 
   const toggleSelection = (date: string) => {
     setSelectedDates(prev => prev.includes(date) ? prev.filter(d => d !== date) : [...prev, date]);
+  };
+
+  const purgeAllHistory = async () => {
+    const tabName = activeHistoryTab === 'current' ? 'ACTIVE SYSTEM (V2)' : 'ARCHIVED DATA (OLD)';
+    if (confirm(`🚨 WARNING: This will permanently delete ALL ${dates.length} history logs from the ${tabName} dataset in both Firestore and LocalStorage.\n\nThere is no undo and we will start fresh.\n\nAre you sure you want to proceed?`)) {
+      try {
+        const allDates = [...dates];
+        if (activeHistoryTab === 'current') {
+          // 1. Clear local state and localStorage first
+          setRecords((prev: any) => {
+            const newRecs = {};
+            localStorage.setItem('broomies_db_daily_records_v2', JSON.stringify(newRecs));
+            localStorage.setItem('broomies_app_data_fallback_v2', JSON.stringify(newRecs));
+            return newRecs;
+          });
+
+          // 2. Clear from Firestore safely
+          for (const date of allDates) {
+            for (const outlet of OUTLETS) {
+              try {
+                await deleteDoc(doc(db, DAILY_RECORDS_COL, `${date}_${outlet.id}`));
+              } catch (e) {
+                console.error(`Failed to delete Firestore outlet doc ${date}_${outlet.id}:`, e);
+              }
+            }
+            try {
+              await deleteDoc(doc(db, DAILY_RECORDS_COL, date));
+            } catch (e) {
+              console.error(`Failed to delete Firestore kitchen batch doc ${date}:`, e);
+            }
+          }
+        } else {
+          // 1. Clear local state and localStorage first
+          setOldRecords((prev: any) => {
+            const newRecs = {};
+            localStorage.setItem('broomies_db_daily_records', JSON.stringify(newRecs));
+            localStorage.setItem('broomies_app_data_fallback', JSON.stringify(newRecs));
+            return newRecs;
+          });
+
+          // 2. Clear from legacy Firestore safely
+          for (const date of allDates) {
+            for (const outlet of OUTLETS) {
+              try {
+                await deleteDoc(doc(db, DAILY_RECORDS_OLD_COL, `${date}_${outlet.id}`));
+              } catch (e) {
+                console.error(`Failed to delete legacy Firestore outlet doc ${date}_${outlet.id}:`, e);
+              }
+            }
+            try {
+              await deleteDoc(doc(db, DAILY_RECORDS_OLD_COL, date));
+            } catch (e) {
+              console.error(`Failed to delete legacy Firestore kitchen batch doc ${date}:`, e);
+            }
+          }
+        }
+
+        if (addNotification) {
+          addNotification(`SUCCESSFULLY PURGED ALL ${allDates.length} HISTORY RECORDS`, 'success');
+        }
+      } catch (e: any) {
+        console.error("Purge all history failed:", e);
+        if (addNotification) {
+          addNotification(`FAILED TO PURGE ALL: ${e.message || 'Error'}`, 'error');
+        }
+      } finally {
+        setSelectedDates([]);
+      }
+    }
   };
 
   const deleteSelected = async () => {
@@ -2585,12 +2871,35 @@ const HistoryPanelComponent = React.memo(({
               onChange={e => setSearchTerm(e.target.value)}
             />
           </div>
+          {dates.length > 0 && (
+            <button 
+              onClick={() => {
+                if (selectedDates.length === dates.length) {
+                  setSelectedDates([]);
+                } else {
+                  setSelectedDates(dates);
+                }
+              }}
+              className="px-4 h-10 border-2 border-brand-text text-brand-text text-[10px] font-black uppercase tracking-widest hover:bg-slate-50 transition-all shadow-[2px_2px_0_0_rgba(0,0,0,1)] shrink-0 bg-white"
+            >
+              {selectedDates.length === dates.length ? 'DESELECT ALL' : 'SELECT ALL'}
+            </button>
+          )}
           {selectedDates.length > 0 && (
             <button 
               onClick={deleteSelected} 
-              className="flex items-center justify-center gap-2 px-6 h-10 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-red-700 transition-all shadow-lg shrink-0"
+              className="flex items-center justify-center gap-2 px-6 h-10 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest hover:bg-red-700 transition-all shadow-[2px_2px_0_0_rgba(0,0,0,1)] shadow-red-900 shrink-0"
             >
               PURGE ({selectedDates.length})
+            </button>
+          )}
+          {dates.length > 0 && (
+            <button 
+              onClick={purgeAllHistory} 
+              className="flex items-center justify-center gap-2 px-4 h-10 bg-rose-600 hover:bg-rose-700 text-white text-[10px] font-black uppercase tracking-widest transition-all shadow-[2px_2px_0_0_rgba(0,0,0,1)] shadow-rose-950 shrink-0"
+              title="Delete all history data in this dataset to start fresh"
+            >
+              🔥 PURGE ALL ({dates.length})
             </button>
           )}
         </div>
@@ -3969,24 +4278,24 @@ export default function App() {
   // Debounced LocalStorage Backup for Active Records (V2)
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (Object.keys(records).length > 0) {
+      if (!loading) {
         localStorage.setItem('broomies_db_daily_records_v2', JSON.stringify(records));
         localStorage.setItem('broomies_app_data_fallback_v2', JSON.stringify(records));
       }
     }, 1500); // Debounce to allow seamless typing without blocking main thread
     return () => clearTimeout(timer);
-  }, [records]);
+  }, [records, loading]);
 
   // Debounced LocalStorage Backup for Legacy Archive Records (Old)
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (Object.keys(oldRecords).length > 0) {
+      if (!loading) {
         localStorage.setItem('broomies_db_daily_records', JSON.stringify(oldRecords));
         localStorage.setItem('broomies_app_data_fallback', JSON.stringify(oldRecords));
       }
     }, 1500);
     return () => clearTimeout(timer);
-  }, [oldRecords]);
+  }, [oldRecords, loading]);
 
   // Check for legacy data on mount
   useEffect(() => {
@@ -4862,6 +5171,68 @@ export default function App() {
     }
   };
 
+  const wipeAllAppData = async () => {
+    if (!confirm("⚠️ DANGER: This will permanently delete ALL data from Firestore and LocalStorage (including all items, recipes, ingredients, daily records, and transfers) to start completely fresh. This cannot be undone. Do you wish to proceed?")) return;
+    if (!confirm("🚨 LAST WARNING: Are you absolutely sure? Everything will be deleted!")) return;
+
+    setLoading(true);
+    try {
+      const collectionsToWipe = [
+        'items',
+        'ingredients',
+        'recipes',
+        DAILY_RECORDS_COL,
+        DAILY_RECORDS_OLD_COL,
+        REQUIREMENTS_COL,
+        REQUIREMENTS_OLD_COL,
+        TRANSFERS_COL,
+        TRANSFERS_OLD_COL,
+        COLD_ROOM_COL,
+        COLD_ROOM_OLD_COL,
+        GLOBAL_WASTAGE_COL
+      ];
+
+      for (const colName of collectionsToWipe) {
+        try {
+          const snap = await getDocs(collection(db, colName));
+          if (!snap.empty) {
+            const docs = snap.docs;
+            for (let i = 0; i < docs.length; i += 400) {
+              const chunk = docs.slice(i, i + 400);
+              const batch = writeBatch(db);
+              chunk.forEach(docSnap => {
+                batch.delete(docSnap.ref);
+              });
+              await batch.commit();
+            }
+          }
+        } catch (e) {
+          console.error(`Error wiping collection ${colName}:`, e);
+        }
+      }
+
+      // Clear all LocalStorage
+      localStorage.clear();
+
+      // Reset States
+      setRecords({});
+      setOldRecords({});
+      setItems([]);
+      setIngredients([]);
+      setRecipes([]);
+      setRequirements([]);
+      setPendingTransfers([]);
+      
+      alert("🎉 ALL SYSTEM DATA HAS BEEN DELETED SUCCESSFULLY! The application will now reload to start fresh.");
+      window.location.reload();
+    } catch (error: any) {
+      console.error("Wipe failed:", error);
+      alert("Failed to wipe all data: " + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const updateOutletDistribution = useCallback(async (itemId: string, outletId: string, value: number) => {
     const qty = Number(value);
     if (qty <= 0) return;
@@ -5721,17 +6092,7 @@ export default function App() {
             updatePermission={updatePermission}
             setIsSidebarOpen={setIsSidebarOpen}
             recalculateStockChain={recalculateStockChain}
-          />
-        )}
-        {view === 'requirements' && (
-          <RequirementsComponent 
-            items={items}
-            requirements={requirements}
-            selectedOutletId={selectedOutletId}
-            setIsSidebarOpen={setIsSidebarOpen}
-            userRole={userRole}
-            records={records}
-            currentDate={currentDate}
+            wipeAllAppData={wipeAllAppData}
           />
         )}
         {view === 'items' && (
@@ -5836,20 +6197,6 @@ export default function App() {
             calculateClosing={calculateClosing}
           />
         )}
-        {view === 'ledgerSheet' && (
-          <LedgerSheetComponent
-            items={items}
-            records={records}
-            setRecords={setRecords}
-            currentDate={currentDate}
-            setCurrentDate={setCurrentDate}
-            getPreviousClosing={getPreviousClosing}
-            calculateSold={calculateSold}
-            calculateClosing={calculateClosing}
-            setIsSidebarOpen={setIsSidebarOpen}
-            setPendingTransfers={setPendingTransfers}
-          />
-        )}
         {view === 'dateWiseClosing' && (
           <DateWiseClosingComponent
             items={items}
@@ -5859,6 +6206,10 @@ export default function App() {
             setCurrentDate={setCurrentDate}
             selectedOutletId={selectedOutletId}
             setIsSidebarOpen={setIsSidebarOpen}
+            getPreviousClosingInternal={getPreviousClosingInternal}
+            calculateSold={calculateSold}
+            calculateClosing={calculateClosing}
+            userRole={userRole}
           />
         )}
         {view === 'distribution' && (
@@ -6161,7 +6512,7 @@ export default function App() {
 
 const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChange, setIsSidebarOpen, selectedOutletId, records, setRecords, getPreviousClosingInternal, calculateSold, calculateClosing }: any) => {
   const scannerRef = useRef<Html5QrcodeScanner | null>(null);
-  const [activeTab, setActiveTab] = useState<'qr' | 'ai_bulk'>('qr');
+  const [activeTab, setActiveTab] = useState<'qr' | 'ai_single' | 'ai_bulk'>('qr');
   
   // Existing states
   const [selectedItem, setSelectedItem] = useState<any | null>(null);
@@ -6190,6 +6541,46 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
   // Webcam stream references
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
+
+  const processSingleCakeWithAI = async (base64Image: string) => {
+    setAnalyzerLoading(true);
+    setAnalysisStatus("Broomies AI is matching captured photo with catalog references...");
+    try {
+      const response = await fetch('/api/gemini/identify-cake', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          image: base64Image,
+          items: items
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Match server error");
+      }
+
+      const result = await response.json();
+      if (result.matchedItemId) {
+        const matchedItem = items.find((i: any) => i.id === result.matchedItemId);
+        if (matchedItem) {
+          setSelectedItem(matchedItem);
+          setAnalysisStatus(`Successfully matched: ${matchedItem.name}! Put quantity and destination outlet on the right side to transfer.`);
+          if (navigator.vibrate) navigator.vibrate(50);
+        } else {
+          setAnalysisStatus(`AI identified "${result.suggestedName || 'Unknown'}" but we couldn't map it. Please upload a clearer photo.`);
+        }
+      } else {
+        setAnalysisStatus(`Could not find confident match. Reasoning: ${result.reasoning || 'No details available.'}`);
+      }
+    } catch (err: any) {
+      console.error("AI single match failure:", err);
+      setAnalysisStatus("Error matching cake: " + (err.message || "Please try again."));
+    } finally {
+      setAnalyzerLoading(false);
+    }
+  };
 
   // QR Scanner effect
   useEffect(() => {
@@ -6289,7 +6680,7 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
   };
 
   useEffect(() => {
-    if (activeTab === 'ai_bulk' && webcamActive) {
+    if ((activeTab === 'ai_bulk' || activeTab === 'ai_single') && webcamActive) {
       startWebcam();
     } else {
       stopWebcam();
@@ -6307,8 +6698,12 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
       if (ctx) {
         ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
         const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-        setScannedImages(prev => [dataUrl, ...prev]);
-        processImageWithAI(dataUrl);
+        if (activeTab === 'ai_single') {
+          processSingleCakeWithAI(dataUrl);
+        } else {
+          setScannedImages(prev => [dataUrl, ...prev]);
+          processImageWithAI(dataUrl);
+        }
       }
     } catch (e) {
       console.error("Frame capture failed:", e);
@@ -6324,8 +6719,12 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
       const reader = new FileReader();
       reader.onloadend = () => {
         if (typeof reader.result === 'string') {
-          setScannedImages(prev => [reader.result as string, ...prev]);
-          processImageWithAI(reader.result);
+          if (activeTab === 'ai_single') {
+            processSingleCakeWithAI(reader.result);
+          } else {
+            setScannedImages(prev => [reader.result as string, ...prev]);
+            processImageWithAI(reader.result);
+          }
         }
       };
       reader.readAsDataURL(file);
@@ -6639,7 +7038,7 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
         </div>
 
         {/* Tab Selector */}
-        <div className="flex border-2 border-brand-text bg-slate-50 p-1">
+        <div className="flex border-2 border-brand-text bg-slate-50 p-1 shrink-0 flex-wrap sm:flex-nowrap">
           <button 
             onClick={() => {
               setActiveTab('qr');
@@ -6650,7 +7049,21 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
             <QrCode size={14} /> Barcode Scanner
           </button>
           <button 
-            onClick={() => setActiveTab('ai_bulk')}
+            onClick={() => {
+              setActiveTab('ai_single');
+              setWebcamActive(false);
+              setAnalysisStatus("Ready to snap cake photo or upload!");
+            }}
+            className={`px-4 py-2 text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all ${activeTab === 'ai_single' ? 'bg-[#e11d48] text-white shadow' : 'text-brand-text/60 hover:text-brand-text'}`}
+          >
+            <Camera size={14} /> AI Cake Matcher
+          </button>
+          <button 
+            onClick={() => {
+              setActiveTab('ai_bulk');
+              setWebcamActive(false);
+              setAnalysisStatus("Ready to scan or upload cake crates!");
+            }}
             className={`px-4 py-2 text-xs font-black uppercase tracking-wider flex items-center gap-2 transition-all ${activeTab === 'ai_bulk' ? 'bg-brand-text text-white shadow' : 'text-brand-text/60 hover:text-brand-text'}`}
           >
             <Sparkles size={14} /> AI Bulk Visual Scanner
@@ -6662,7 +7075,7 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
         <div className="flex-1 flex flex-col gap-6">
           
           {/* Active Work Panel */}
-          {activeTab === 'qr' ? (
+          {activeTab === 'qr' && (
             <div className="bg-white border-4 border-brand-text p-6 shadow-[16px_16px_0_0_rgba(0,0,0,1)] relative overflow-hidden">
                <div className="absolute top-0 left-0 w-full h-1 bg-brand-text animate-pulse"></div>
                <div className="flex items-center gap-3 mb-6">
@@ -6683,11 +7096,105 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
                  </div>
                )}
             </div>
-          ) : (
+          )}
+
+          {activeTab === 'ai_single' && (
+            <div className="bg-white border-4 border-brand-text p-6 shadow-[16px_16px_0_0_rgba(0,0,0,1)] relative overflow-hidden flex flex-col gap-6">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#e11d48] animate-pulse"></div>
+              
+              <div className="flex items-center justify-between border-b pb-4 flex-wrap gap-4">
+                 <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#e11d48] text-white flex items-center justify-center">
+                       <ChefHat size={20} />
+                    </div>
+                    <div>
+                       <h3 className="font-bold uppercase tracking-widest text-sm">AI Cake Matcher (Single)</h3>
+                       <p className="text-[9px] text-[#e11d48] font-bold uppercase">Compare scanned cake against custom catalog photos visually</p>
+                    </div>
+                 </div>
+                 
+                 {/* Live stream toggle */}
+                 <button 
+                  onClick={() => setWebcamActive(!webcamActive)}
+                  className={`px-4 h-10 border-2 border-brand-text font-black text-[10px] uppercase tracking-wider flex items-center gap-2 transition-all ${webcamActive ? 'bg-red-500 text-white border-red-600' : 'bg-white text-brand-text hover:bg-slate-50'}`}
+                 >
+                   <Camera size={14} />
+                   {webcamActive ? 'STOP LIVE CAMERA' : 'START LIVE CAMERA'}
+                 </button>
+              </div>
+
+              {/* Status Banner */}
+              {analysisStatus && (
+                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-950 text-xs font-bold uppercase tracking-wide flex items-center gap-2">
+                  <Sparkles size={14} className="text-[#e11d48] shrink-0" />
+                  <span>{analysisStatus}</span>
+                </div>
+              )}
+
+              {/* Capture Box */}
+              <div className="relative border-4 border-dashed border-slate-200 bg-slate-50 rounded-lg min-h-[320px] flex flex-col items-center justify-center overflow-hidden p-6 text-center">
+                {webcamActive ? (
+                  <div className="absolute inset-0 w-full h-full bg-black flex flex-col justify-between">
+                    <video ref={videoRef} className="w-full h-full object-cover" autoPlay playsInline muted />
+                    <div className="absolute bottom-6 left-0 w-full flex justify-center z-10">
+                      <button 
+                        disabled={analyzerLoading}
+                        onClick={captureFrame}
+                        className="px-8 h-14 bg-[#e11d48] hover:bg-rose-700 active:scale-95 text-white font-black uppercase text-xs tracking-widest flex items-center gap-2 shadow-[4px_4px_0_0_rgba(0,0,0,1)] border border-black/30"
+                      >
+                        {analyzerLoading ? <Loader2 className="animate-spin" /> : <Camera size={18} />}
+                        {analyzerLoading ? 'IDENTIFYING...' : 'CAPTURE & RECOGNIZE CAKE'}
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mx-auto">
+                      <Camera size={36} />
+                    </div>
+                    <div>
+                      <p className="text-sm font-black uppercase tracking-wider text-brand-text">Snap Cake Photo or Upload</p>
+                      <p className="text-[10px] opacity-60 uppercase font-bold max-w-sm mt-1">Our AI compares your custom uploaded product photos against this image and automatically selects the correct item for transfer!</p>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-3">
+                      <button 
+                        onClick={() => setWebcamActive(true)}
+                        className="px-6 h-12 bg-[#e11d48] text-white font-black uppercase text-[10px] tracking-widest hover:bg-rose-600 transition-all flex items-center gap-2 shadow"
+                      >
+                        <Camera size={14} /> USE WEBCAM
+                      </button>
+                      <label className="px-6 h-12 bg-white text-brand-text border-2 border-brand-text font-black uppercase text-[10px] tracking-widest hover:bg-slate-50 transition-all flex items-center gap-2 cursor-pointer shadow">
+                        <Download size={14} className="rotate-180" /> UPLOAD PHOTO
+                        <input 
+                          type="file" 
+                          accept="image/*" 
+                          onChange={handleFileUpload} 
+                          className="hidden" 
+                        />
+                      </label>
+                    </div>
+                  </div>
+                )}
+
+                {analyzerLoading && (
+                  <div className="absolute inset-0 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center space-y-4 z-20">
+                    <Loader2 className="animate-spin text-[#e11d48]" size={48} />
+                    <div className="text-center">
+                      <p className="text-lg font-brand-serif italic text-rose-900 animate-pulse uppercase font-black">AI Chef is matching with catalog references...</p>
+                      <p className="text-[10px] text-rose-600 uppercase tracking-widest font-black max-w-xs mt-2">Running visual side-by-side comparison on custom reference photos...</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'ai_bulk' && (
             <div className="bg-white border-4 border-brand-text p-6 shadow-[16px_16px_0_0_rgba(0,0,0,1)] relative overflow-hidden flex flex-col gap-6">
               <div className="absolute top-0 left-0 w-full h-1 bg-brand-text animate-pulse"></div>
               
-              <div className="flex items-center justify-between border-b pb-4">
+              <div className="flex items-center justify-between border-b pb-4 flex-wrap gap-4">
                  <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-purple-600 text-white flex items-center justify-center">
                        <ChefHat size={20} />
@@ -8135,8 +8642,9 @@ const TransferNotifier = React.memo(({ transfers, userOutletId, onAccept, onReje
   );
 });
 
-// --- REQUIREMENTS COMPONENT ---
-const RequirementsComponent = React.memo(({ items, requirements, selectedOutletId, setIsSidebarOpen, userRole, records, currentDate }: any) => {
+// --- REQUIREMENTS COMPONENT (REMOVED) ---
+const RequirementsComponent = () => null;
+const OldRequirementsComponent = React.memo(({ items, requirements, selectedOutletId, setIsSidebarOpen, userRole, records, currentDate }: any) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'matrix'>(userRole === 'admin' ? 'matrix' : 'grid');
   
@@ -8893,12 +9401,20 @@ const ProductionRow = React.memo(({ p, idx, updateOutletDistribution, updateProd
   };
 
   const onKeyDown = (e: React.KeyboardEvent, colId: string) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.keyCode === 13) {
       e.preventDefault();
       const nextRow = document.querySelector(`input[data-prod-row="${idx + 1}"][data-prod-col="${colId}"]`) as HTMLInputElement;
       if (nextRow) {
         nextRow.focus();
-        nextRow.select();
+        try {
+          nextRow.select();
+        } catch (err) {}
+        setTimeout(() => {
+          nextRow.focus();
+          try {
+            nextRow.select();
+          } catch (err) {}
+        }, 20);
       }
     }
   };

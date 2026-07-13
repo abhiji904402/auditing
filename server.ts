@@ -500,32 +500,70 @@ async function startServer() {
 
       // Build listing of current catalog for matching
       const catalogDescription = items
-        .map((it: any) => `- ID: "${it.id}", Name: "${it.name}", Category: "${it.category}"`)
+        .map((it: any) => `- ID: "${it.id}", Name: "${it.name}", Category: "${it.category}"${it.image ? ' (HAS CUSTOM PHOTO)' : ''}`)
         .join("\n");
 
-      const prompt = `You are an expert AI pastry chef. Analyze the visually provided image of a cake, cheesecake, or pastry.
-Choose the best matching item from the catalog.
+      // Build contents list for multi-modal matching
+      const contentsList: any[] = [];
+      
+      // Target image to identify is always Part 1 (index 0)
+      contentsList.push({
+        inlineData: {
+          mimeType,
+          data: base64Data
+        }
+      });
+
+      // Append reference images of catalog items
+      const referenceMappings: string[] = [];
+      let refImgCount = 0;
+
+      if (Array.isArray(items)) {
+        items.forEach((it: any) => {
+          if (it.image) {
+            const refMatches = it.image.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+            if (refMatches && refMatches.length === 3) {
+              refImgCount++;
+              const refMime = refMatches[1];
+              const refData = refMatches[2];
+              
+              contentsList.push({
+                inlineData: {
+                  mimeType: refMime,
+                  data: refData
+                }
+              });
+
+              referenceMappings.push(`- Reference Image #${refImgCount} (Part #${contentsList.length}): This is the exact product photo uploaded by the user for catalog item ID "${it.id}" ("${it.name}", Category: "${it.category}")`);
+            }
+          }
+        });
+      }
+
+      const prompt = `You are an expert AI pastry chef. Analyze the first provided image (the captured/scanned cake target).
+Choose the best matching item from our catalog list.
 
 Our catalog items:
 ${catalogDescription}
 
-Instructions:
+${refImgCount > 0 ? `IMPORTANT: We have attached ${refImgCount} custom reference photos uploaded by the user for our products. Please do a visual, side-by-side comparison of the scanned cake (the first image) with these reference images:
+${referenceMappings.join('\n')}
+
+Instructions for custom reference photos:
+1. Examine if the scanned cake matches any of the custom reference photos in terms of icing design, decoration, shape, glaze, sprinkles, layout, or toppings.
+2. If there is a highly matching reference photo, prioritize matching to its corresponding item ID, and output that exact ID in "matchedItemId" and set "isConfident" to true.` : ''}
+
+General Instructions:
 1. Examine structural style, colors, icing decoration, size, shape, and unique elements.
 2. If there is a highly confident match (over 70% confidence) in the catalog (e.g. matching Chocolate Truffle, Pineapple, Red Velvet, Black Forest, Blueberry, Lotus Biscoff, etc., as well as the correct mass 1/2 Kg, 1 Kg, or Pastry), return that matched item's ID in "matchedItemId" and set "isConfident" to true.
 3. If no clear match is present or you are uncertain, set "matchedItemId" to empty string (""), "isConfident" to false, and suggest a clean professional product name in "suggestedName" (e.g., 'Nutella Blue Berry Pastry') and recommend an appropriate category in "suggestedCategory" (either 'Classic Cakes', 'Exotic Cakes', 'Cheese Cakes', 'Pastries', or 'Savouries & Snacks').
 4. Include a very concise English description of what you saw in "reasoning" (e.g. 'Identified a round cake with black glaze and chocolate swirls, matching Chocolate Truffle Cake 1/2 Kg').`;
 
+      contentsList.push({ text: prompt });
+
       const response = await ai.models.generateContent({
         model: "gemini-3.1-flash-lite",
-        contents: [
-          {
-            inlineData: {
-              mimeType,
-              data: base64Data
-            }
-          },
-          { text: prompt }
-        ],
+        contents: contentsList,
         config: {
           responseMimeType: "application/json",
           responseSchema: {
