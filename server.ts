@@ -940,9 +940,7 @@ Instructions:
       const catalogInfo = activeItems.map((i: any) => `- ID: "${i.id}", Name: "${i.name}", Category: "${i.category}"`).join('\n');
 
       if (!apiKey) {
-        console.warn("GEMINI_API_KEY is not configured. Running fallback parser.");
-        const fallbackResults = fallbackParseLines(lines, activeItems);
-        return res.json(fallbackResults);
+        return res.status(500).json({ error: "Gemini API key is not configured in settings." });
       }
 
       const prompt = `You are the Inventory Extractor for "Broomies" bakery management system.
@@ -965,7 +963,7 @@ Each element of the JSON array MUST have exactly these fields:
 - "isMatched": boolean`;
 
       const result = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-3.5-flash",
         contents: [
           { text: prompt },
           { text: `Process these lines now:\n\n${lines.join('\n')}` }
@@ -1004,9 +1002,8 @@ Each element of the JSON array MUST have exactly these fields:
       const parsedResults = JSON.parse(responseText.trim());
       res.json(parsedResults);
     } catch (err: any) {
-      console.error("Gemini bulk parse failed, falling back to local text parser:", err);
-      const fallbackResults = fallbackParseLines(req.body.lines || [], req.body.items || []);
-      res.json(fallbackResults);
+      console.error("Gemini bulk parse failed:", err);
+      res.status(500).json({ error: `Gemini parsing failed: ${err.message || err}` });
     }
   });
 

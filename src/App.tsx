@@ -4007,132 +4007,75 @@ export default function App() {
   // --- FIRESTORE REAL-TIME SYNCHRONIZATION ENGINE ---
   useEffect(() => {
     const unsubDailyRecords = onSnapshot(collection(db, DAILY_RECORDS_COL), (snapshot) => {
-      setRecords(prev => {
-        const nextRecords = { ...prev };
-        let hasChanges = false;
+      const nextRecords: AllRecords = {};
+      
+      snapshot.docs.forEach((doc) => {
+        const docId = doc.id;
+        const data = doc.data();
         
-        snapshot.docChanges().forEach((change) => {
-          const docId = change.doc.id;
-          const data = change.doc.data();
-          hasChanges = true;
-          
-          if (change.type === 'removed') {
-            if (docId.includes('_')) {
-              // Outlet record (e.g. 2026-06-03_OutletId)
-              const parts = docId.split('_');
-              const dateKey = parts[0];
-              const outletId = parts.slice(1).join('_');
-              if (nextRecords[dateKey]) {
-                const subRecs = { ...nextRecords[dateKey] };
-                delete subRecs[outletId];
-                if (Object.keys(subRecs).length === 0) {
-                  delete nextRecords[dateKey];
-                } else {
-                  nextRecords[dateKey] = subRecs;
-                }
-              }
-            } else {
-              // Kitchen batch record (e.g. 2026-06-03)
-              const dateKey = docId;
-              if (nextRecords[dateKey]) {
-                const subRecs = { ...nextRecords[dateKey] };
-                delete subRecs.batches;
-                if (Object.keys(subRecs).length === 0) {
-                  delete nextRecords[dateKey];
-                } else {
-                  nextRecords[dateKey] = subRecs;
-                }
-              }
+        if (docId.includes('_')) {
+          // Outlet record (e.g. 2026-06-03_OutletId)
+          const parts = docId.split('_');
+          const dateKey = parts[0];
+          const outletId = parts.slice(1).join('_');
+          if (data && data.date && data.outletId && data.records) {
+            if (!nextRecords[data.date]) {
+              nextRecords[data.date] = {};
             }
-          } else {
-            // 'added' or 'modified'
-            if (data && data.date && data.outletId && data.records) {
-              if (!nextRecords[data.date]) {
-                nextRecords[data.date] = {};
-              }
-              nextRecords[data.date] = {
-                ...nextRecords[data.date],
-                [data.outletId]: data.records
-              };
-            } else if (data && data.batches && !docId.includes('_')) {
-              const dateKey = docId;
-              if (!nextRecords[dateKey]) {
-                nextRecords[dateKey] = {};
-              }
-              nextRecords[dateKey] = {
-                ...nextRecords[dateKey],
-                batches: data.batches
-              };
-            }
+            nextRecords[data.date][data.outletId] = data.records;
           }
-        });
-        
-        return hasChanges ? nextRecords : prev;
+        } else {
+          // Kitchen batch record (e.g. 2026-06-03)
+          const dateKey = docId;
+          if (data && data.batches) {
+            if (!nextRecords[dateKey]) {
+              nextRecords[dateKey] = {};
+            }
+            nextRecords[dateKey].batches = data.batches;
+          }
+        }
       });
+      
+      setRecords(nextRecords);
+      localStorage.setItem('broomies_db_daily_records_v2', JSON.stringify(nextRecords));
+      localStorage.setItem('broomies_app_data_fallback_v2', JSON.stringify(nextRecords));
     }, (error) => {
       console.error("Error listening to daily_records_v2:", error);
     });
 
     const unsubOldDailyRecords = onSnapshot(collection(db, DAILY_RECORDS_OLD_COL), (snapshot) => {
-      setOldRecords(prev => {
-        const nextRecords = { ...prev };
-        let hasChanges = false;
+      const nextRecords: AllRecords = {};
+      
+      snapshot.docs.forEach((doc) => {
+        const docId = doc.id;
+        const data = doc.data();
         
-        snapshot.docChanges().forEach((change) => {
-          const docId = change.doc.id;
-          const data = change.doc.data();
-          hasChanges = true;
-          
-          if (change.type === 'removed') {
-            if (docId.includes('_')) {
-              const parts = docId.split('_');
-              const dateKey = parts[0];
-              const outletId = parts.slice(1).join('_');
-              if (nextRecords[dateKey]) {
-                const subRecs = { ...nextRecords[dateKey] };
-                delete subRecs[outletId];
-                if (Object.keys(subRecs).length === 0) {
-                  delete nextRecords[dateKey];
-                } else {
-                  nextRecords[dateKey] = subRecs;
-                }
-              }
-            } else {
-              const dateKey = docId;
-              if (nextRecords[dateKey]) {
-                const subRecs = { ...nextRecords[dateKey] };
-                delete subRecs.batches;
-                if (Object.keys(subRecs).length === 0) {
-                  delete nextRecords[dateKey];
-                } else {
-                  nextRecords[dateKey] = subRecs;
-                }
-              }
+        if (docId.includes('_')) {
+          // Outlet record (e.g. 2026-06-03_OutletId)
+          const parts = docId.split('_');
+          const dateKey = parts[0];
+          const outletId = parts.slice(1).join('_');
+          if (data && data.date && data.outletId && data.records) {
+            if (!nextRecords[data.date]) {
+              nextRecords[data.date] = {};
             }
-          } else {
-            if (data && data.date && data.outletId && data.records) {
-              if (!nextRecords[data.date]) {
-                nextRecords[data.date] = {};
-              }
-              nextRecords[data.date] = {
-                ...nextRecords[data.date],
-                [data.outletId]: data.records
-              };
-            } else if (data && data.batches && !docId.includes('_')) {
-              const dateKey = docId;
-              if (!nextRecords[dateKey]) {
-                nextRecords[dateKey] = {};
-              }
-              nextRecords[dateKey] = {
-                ...nextRecords[dateKey],
-                batches: data.batches
-              };
-            }
+            nextRecords[data.date][data.outletId] = data.records;
           }
-        });
-        
-        return hasChanges ? nextRecords : prev;
+        } else {
+          // Kitchen batch record (e.g. 2026-06-03)
+          const dateKey = docId;
+          if (data && data.batches) {
+            if (!nextRecords[dateKey]) {
+              nextRecords[dateKey] = {};
+            }
+            nextRecords[dateKey].batches = data.batches;
+          }
+        }
       });
+      
+      setOldRecords(nextRecords);
+      localStorage.setItem('broomies_db_daily_records', JSON.stringify(nextRecords));
+      localStorage.setItem('broomies_app_data_fallback', JSON.stringify(nextRecords));
     }, (error) => {
       console.error("Error listening to old daily_records:", error);
     });
@@ -5941,21 +5884,22 @@ export default function App() {
         })
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error("Gemini AI server requests failed");
+        throw new Error(data.error || "Gemini AI server request failed");
       }
 
-      const aiResults = await response.json();
-      if (Array.isArray(aiResults)) {
-        finalExtractedData = aiResults;
+      if (Array.isArray(data)) {
+        finalExtractedData = data;
       } else {
-        console.warn("Server did not return a valid array, defaulting to local parser.");
-        finalExtractedData = rawLines.map(line => parseAndMatchLine(line, activeItems));
+        throw new Error("Gemini AI returned invalid data format");
       }
-    } catch (error) {
-      console.warn("Gemini AI is temporarily busy or unreachable. Successfully processed using emergency offline fallback parser:", error);
-      addNotification("GEMINI AI OFFLINE: INITIATING EMERGENCY BACKUP PARSER", "error");
-      finalExtractedData = rawLines.map(line => parseAndMatchLine(line, activeItems));
+    } catch (error: any) {
+      console.error("Gemini AI bulk parsing failure:", error);
+      addNotification(`GEMINI AI ERROR: ${error.message || "Failed to process text"}`, "error");
+      setIsProcessingAI(false);
+      return;
     }
 
     try {
