@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 import { doc, setDoc } from 'firebase/firestore';
 import { db, DAILY_RECORDS_COL, OperationType, handleFirestoreError } from '../lib/firebase';
-import { OUTLETS, Item } from '../constants';
+import { OUTLETS, Item, PRIORITY_ITEM_NAMES, getCategoryWeight } from '../constants';
 import { format } from 'date-fns';
 
 interface DateWiseClosingProps {
@@ -60,12 +60,29 @@ export const DateWiseClosingComponent = React.memo(({
   const [saveStatus, setSaveStatus] = useState<{ [key: string]: 'idle' | 'saving' | 'saved' | 'error' }>({});
   const tableRef = useRef<HTMLTableElement | null>(null);
 
-  // Filter items to only include active cakes and pastries
+  // Filter items to only include active cakes and pastries, sorted by priority and category
   const cakeAndPastryItems = useMemo(() => {
-    return (items || []).filter(item => {
-      const cat = (item.category || '').toLowerCase();
-      return cat.includes('cake') || cat.includes('pastry') || cat.includes('pastries');
-    });
+    return (items || [])
+      .filter(item => {
+        const cat = (item.category || '').toLowerCase();
+        return cat.includes('cake') || cat.includes('pastry') || cat.includes('pastries');
+      })
+      .sort((a, b) => {
+        const priorityIndexA = PRIORITY_ITEM_NAMES.indexOf(a.name);
+        const priorityIndexB = PRIORITY_ITEM_NAMES.indexOf(b.name);
+        
+        if (priorityIndexA !== -1 || priorityIndexB !== -1) {
+          const valA = priorityIndexA === -1 ? 9999 : priorityIndexA;
+          const valB = priorityIndexB === -1 ? 9999 : priorityIndexB;
+          if (valA !== valB) return valA - valB;
+        }
+
+        const weightA = getCategoryWeight(a.category);
+        const weightB = getCategoryWeight(b.category);
+        if (weightA !== weightB) return weightA - weightB;
+
+        return a.name.localeCompare(b.name);
+      });
   }, [items]);
 
   // Get the outlet name

@@ -282,39 +282,56 @@ export const PRIORITY_ITEM_NAMES = [
   'Chocolate Truffle Cake (1/2 Kg)',
   'Chocolate Truffle Cake (1 Kg)',
   'Classic Pineapple Cake (1/2 Kg - Serve 4-6)',
-  'Classic Pineapple Cake (1 Kg - Serve 8-10)',
-  'Red Velvet Cake (1/2 Kg - Serve 4-6)',
-  'Red Velvet Cake (1 Kg - Serve 8-10)',
   'Butterscotch Cake (1/2 Kg - Serve 4-6)',
-  'Butterscotch Cake (1 Kg - Serve 8-10)',
-  'Black Forest Cake (1/2 Kg - Serve 4-6)',
-  'Black Forest Cake (1 Kg - Serve 8-10)',
-  'Tiramisu (Coffee Flavour) (1/2 Kg - Serve 4-6)',
-  'Tiramisu (Coffee Flavour) (1 Kg - Serve 8-10)',
-  'Ferraro Rocher Cake (1/2 Kg - Serve 4-6)',
-  'Ferraro Rocher Cake (1 Kg - Serve 8-10)',
-  'Rasmalai (1/2 Kg - Serve 4-6)',
-  'Rasmalai (1 Kg - Serve 8-10)',
-  'Blueberry Cake (1/2 Kg - Serve 4-6)',
-  'Blueberry Cake (1 Kg - Serve 8-10)',
-  'Fresh Mango (Seasonal) Cake (1/2 Kg - Serve 4-6)',
-  'Fresh Mango (Seasonal) Cake (1 Kg - Serve 8-10)',
-  'Fresh Fruit Cake (1/2 Kg - Serve 4-6)',
-  'Fresh Fruit Cake (1 Kg - Serve 8-10)',
   'Vanilla Cake (1/2 Kg - Serve 4-6)',
-  'Vanilla Cake (1 Kg - Serve 8-10)',
-  'Blueberry Cheese Cake (1 Kg - Serve 8-10)',
-  'Lotus Biscoff Cake (1/2 Kg - Serve 4-6)',
-  'Lotus Biscoff Cake (1 Kg - Serve 8-10)',
-  'Rainbow Cake Large',
+  'Fresh Fruit Cake (1/2 Kg - Serve 4-6)',
+  'Blueberry Cake (1/2 Kg - Serve 4-6)',
+  'Tiramisu (Coffee Flavour) (1/2 Kg - Serve 4-6)',
+  'Black Forest Cake (1/2 Kg - Serve 4-6)',
+  'Red Velvet Cake (1/2 Kg - Serve 4-6)',
+  'Blueberry Cheese Cake (1/2 Kg - Serve 4-6)',
+  'Nutella Cheese Cake (1/2 Kg - Serve 4-6)',
+  'Fresh Mango (Seasonal) Cake (1/2 Kg - Serve 4-6)',
+  'Ferraro Rocher Cake (1/2 Kg - Serve 4-6)',
+  'Rasmalai (1/2 Kg - Serve 4-6)',
   'Classic Pineapple Pastry',
+  'Black Forest Pastry',
   'Chocolate Truffle Pastry',
   'Red Velvet Pastry',
-  'Black Forest Pastry',
+  'Blue Berry Pastry',
   'Rainbow Pastry',
+  'Biscoff Cheese Pastry',
   'Blueberry Cheese Pastry',
   'Nutella Cheese Pastry',
-  'Blue Berry Pastry',
-  'Lotus Biscoff Cheese Pastry',
-  'Cup Cake'
+  'Kunafa Pastry',
+  'Choco Chip Dry Cake',
+  'Chocochip (1/2 Kg - Serve 4-6)',
+  'Chocochip (250g)',
+  'Mawa Dry Cake',
+  'Mawa (1/2 Kg - Serve 4-6)',
+  'Mawa (250g)',
+  'Date&Walnut (250g)',
+  'Alloo Patty',
+  'Paneer Patties',
+  'Vada Pav',
+  'Mushroom Puff',
+  'Hot Dog',
+  'Stuffed Kulcha',
+  'Apple Pie'
 ];
+
+export const getCategoryWeight = (category: string): number => {
+  const cat = (category || "").toLowerCase();
+  // 1. Cakes
+  if (cat.includes('cake') || cat.includes('jar')) return 1;
+  // 2. Pastries
+  if (cat.includes('pastr') || cat.includes('pie')) return 2;
+  // 3. Snacks / Savouries
+  if (cat.includes('savour') || cat.includes('fry') || cat.includes('nacho') || cat.includes('pizza') || cat.includes('garlic') || cat.includes('other')) return 3;
+  // 4. Cookies & Namkeens & Chocolates
+  if (cat.includes('cookie') || cat.includes('chip') || cat.includes('namkeen') || cat.includes('chocolat')) return 4;
+  // 5. Decorations
+  if (cat.includes('decor')) return 5;
+  // 6. Rest
+  return 6;
+};

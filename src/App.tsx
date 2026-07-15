@@ -68,7 +68,7 @@ import jsPDF from 'jspdf';
 import QRCode from 'qrcode';
 import autoTable from 'jspdf-autotable';
 import { format, subDays, startOfDay, isValid, eachDayOfInterval } from 'date-fns';
-import { INITIAL_ITEMS, OUTLETS, Item, PRIORITY_ITEM_NAMES } from './constants';
+import { INITIAL_ITEMS, OUTLETS, Item, PRIORITY_ITEM_NAMES, getCategoryWeight } from './constants';
 import { 
   db, 
   auth, 
@@ -1012,25 +1012,9 @@ const DashboardComponent = React.memo(({
   const [stableItems, setStableItems] = useState<any[]>([]);
 
   const performSort = useCallback((data: any) => {
-    const getCategoryWeight = (category: string) => {
-      const cat = (category || "").toLowerCase();
-      if (cat.includes('cake')) return 1;
-      if (cat.includes('pastries')) return 2;
-      if (cat.includes('cookie')) return 3;
-      return 4;
-    };
-
     const sorted = [...items]
       .filter((i: any) => i.status !== 'inactive')
       .sort((a, b) => {
-      const getCategoryWeight = (category: string) => {
-        const cat = (category || "").toLowerCase();
-        if (cat.includes('cake')) return 1;
-        if (cat.includes('pastries')) return 2;
-        if (cat.includes('cookie')) return 3;
-        return 4;
-      };
-
       const dataA = data[a.id];
       const dataB = data[b.id];
       
@@ -1672,6 +1656,11 @@ const MasterItemsComponent = React.memo(({
         const valB = pIndexB === -1 ? 9999 : pIndexB;
         if (valA !== valB) return valA - valB;
       }
+
+      // 1. Category Rank
+      const weightA = getCategoryWeight(a.category);
+      const weightB = getCategoryWeight(b.category);
+      if (weightA !== weightB) return weightA - weightB;
       
       return a.name.localeCompare(b.name);
     });
@@ -3020,15 +3009,11 @@ const ReportsComponent = React.memo(({
         if (valA !== valB) return valA - valB;
       }
 
-      const catA = a.category.toUpperCase();
-      const catB = b.category.toUpperCase();
-      const indexA = priority.indexOf(catA);
-      const indexB = priority.indexOf(catB);
-      if (indexA !== -1 && indexB !== -1) {
-        if (indexA !== indexB) return indexA - indexB;
-      } else if (indexA !== -1) return -1;
-      else if (indexB !== -1) return 1;
-      if (a.category !== b.category) return a.category.localeCompare(b.category);
+      // 1. Category Rank
+      const weightA = getCategoryWeight(a.category);
+      const weightB = getCategoryWeight(b.category);
+      if (weightA !== weightB) return weightA - weightB;
+
       return a.name.localeCompare(b.name);
     });
   }, [items, records, reportStart, reportEnd]);
@@ -8008,15 +7993,8 @@ const LifecycleComponent = React.memo(({ items, records, setRecords, currentDate
         const hasStockB = stockB > 0 ? 1 : 0;
         if (hasStockA !== hasStockB) return hasStockB - hasStockA;
 
-        const getW = (c: string) => {
-          const cat = (c || '').toLowerCase();
-          if (cat.includes('cake')) return 1;
-          if (cat.includes('pastries')) return 2;
-          if (cat.includes('cookie')) return 3;
-          return 4;
-        };
-        const weightA = getW(a.category);
-        const weightB = getW(b.category);
+        const weightA = getCategoryWeight(a.category);
+        const weightB = getCategoryWeight(b.category);
         if (weightA !== weightB) return weightA - weightB;
 
         return a.name.localeCompare(b.name);
@@ -8606,13 +8584,11 @@ const OldRequirementsComponent = React.memo(({ items, requirements, selectedOutl
       if (valA !== valB) return valA - valB;
     }
 
-    const p = (c: string) => {
-      const cat = c.toLowerCase();
-      if (cat.includes('cake')) return 1;
-      if (cat.includes('pastry')) return 2;
-      return 3;
-    };
-    return p(a.category) - p(b.category) || a.name.localeCompare(b.name);
+    const weightA = getCategoryWeight(a.category);
+    const weightB = getCategoryWeight(b.category);
+    if (weightA !== weightB) return weightA - weightB;
+
+    return a.name.localeCompare(b.name);
   });
 
   const updateReq = async (outletId: string, itemId: string, val: string) => {
@@ -9018,15 +8994,8 @@ const GlobalClosingComponent = React.memo(({ items, records, currentDate, setCur
       if (hasStockA !== hasStockB) return hasStockB - hasStockA;
 
       // 2. Secondary: Category Rank
-      const getW = (c: string) => {
-        const cat = (c || '').toUpperCase();
-        if (cat.includes('CAKE')) return 0;
-        if (cat.includes('PASTRIES')) return 1;
-        if (cat.includes('COOKIE')) return 2;
-        return 99;
-      };
-      const wA = getW(a.category);
-      const wB = getW(b.category);
+      const wA = getCategoryWeight(a.category);
+      const wB = getCategoryWeight(b.category);
       if (wA !== wB) return wA - wB;
 
       return a.name.localeCompare(b.name);
@@ -9564,7 +9533,6 @@ const ProductionComponent = React.memo(({ items, records, setRecords, currentDat
   const [stableItems, setStableItems] = useState<any[]>([]);
 
   useEffect(() => {
-    const priority = ['CAKES', 'PASTRIES', 'COOKIES'];
     const sorted = [...items]
       .filter((i: any) => i.status !== 'inactive')
       .sort((a, b) => {
@@ -9579,13 +9547,8 @@ const ProductionComponent = React.memo(({ items, records, setRecords, currentDat
       }
 
       // 1. Category Rank
-      const getW = (c: string) => {
-        const cat = c.toUpperCase();
-        const idx = priority.indexOf(cat);
-        return idx === -1 ? 99 : idx;
-      };
-      const weightA = getW(a.category);
-      const weightB = getW(b.category);
+      const weightA = getCategoryWeight(a.category);
+      const weightB = getCategoryWeight(b.category);
       if (weightA !== weightB) return weightA - weightB;
 
       // 2. Quantity (Live context check is hard inside stableItems without full records, 
