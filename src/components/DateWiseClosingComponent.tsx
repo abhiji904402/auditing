@@ -175,6 +175,35 @@ export const DateWiseClosingComponent = React.memo(({
     return dateStr;
   };
 
+  // Generate the 5 active dates ending on the selected currentDate
+  const activeDates = useMemo(() => {
+    try {
+      const [y, m, d] = currentDate.split('-').map(Number);
+      const dates: Array<{ dateStr: string; dayLabel: string }> = [];
+      for (let i = 4; i >= 0; i--) {
+        const dt = new Date(y, m - 1, d);
+        dt.setDate(dt.getDate() - i);
+        const py = dt.getFullYear();
+        const pm = String(dt.getMonth() + 1).padStart(2, '0');
+        const pd = String(dt.getDate()).padStart(2, '0');
+        const dStr = `${py}-${pm}-${pd}`;
+        dates.push({
+          dateStr: dStr,
+          dayLabel: format(dt, 'dd-MMM')
+        });
+      }
+      return dates;
+    } catch (e) {
+      try {
+        const parts = currentDate.split('-');
+        const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+        return [{ dateStr: currentDate, dayLabel: format(d, 'dd-MMM') }];
+      } catch (err) {
+        return [{ dateStr: currentDate, dayLabel: currentDate }];
+      }
+    }
+  }, [currentDate]);
+
   // Get data fields for a row
   const getRowData = useCallback((itemId: string) => {
     const rawData = records[currentDate]?.[selectedOutletId]?.[itemId] || {};
@@ -188,6 +217,7 @@ export const DateWiseClosingComponent = React.memo(({
     const returned = Number(rawData.returned ?? 0);
     const transf_out = Number(rawData.transf_out ?? 0);
     const closing = rawData.closing !== undefined ? Number(rawData.closing) : undefined;
+    const manufactureClosing = rawData.manufactureClosing || {};
     
     const inward = received + transf_in;
     const adjustments = testing + wastage + returned + transf_out;
@@ -204,25 +234,31 @@ export const DateWiseClosingComponent = React.memo(({
       inward,
       adjustments,
       closing,
+      manufactureClosing,
       sold: isClosingMode ? (rawData.sold ?? calculatedSold) : calculatedSold,
       isClosingMode,
       rawData
     };
   }, [records, currentDate, selectedOutletId, getPreviousClosingInternal]);
 
-  // Handle cell edit and save
-  const handleCellEdit = async (itemId: string, newValStr: string) => {
+  // Handle cell edit and save for a specific manufacture date
+  const handleManufactureEdit = async (itemId: string, targetDateStr: string, newValStr: string) => {
     const trimmed = newValStr.trim();
-    if (trimmed === '') return; // Leave empty if they deleted, do not save incomplete values
-    
-    const newVal = Number(trimmed.replace(/[^0-9]/g, ''));
+    const newVal = trimmed === '' ? 0 : Number(trimmed.replace(/[^0-9]/g, ''));
     if (isNaN(newVal)) return;
 
-    const cellKey = `${currentDate}_${itemId}`;
+    const cellKey = `${currentDate}_${itemId}_${targetDateStr}`;
     setSaveStatus(prev => ({ ...prev, [cellKey]: 'saving' }));
 
     const rowData = getRowData(itemId);
-    const calculatedSold = (rowData.opening + rowData.inward) - (rowData.adjustments + newVal);
+    
+    // Compute new manufacture closing object
+    const existingManufactureClosing = { ...(rowData.rawData.manufactureClosing || {}) };
+    existingManufactureClosing[targetDateStr] = newVal;
+
+    // Sum the counts of only the 5 active dates
+    const newTotalClosing = activeDates.reduce((sum, d) => sum + Number(existingManufactureClosing[d.dateStr] ?? 0), 0);
+    const calculatedSold = (rowData.opening + rowData.inward) - (rowData.adjustments + newTotalClosing);
 
     // 1. Update React local state immediately for fast feedback
     setRecords((prev: any) => {
@@ -241,7 +277,8 @@ export const DateWiseClosingComponent = React.memo(({
         wastage: existingItem.wastage || 0,
         returned: existingItem.returned || 0,
         transf_out: existingItem.transf_out || 0,
-        closing: newVal,
+        manufactureClosing: existingManufactureClosing,
+        closing: newTotalClosing,
         sold: calculatedSold,
         calculationMode: 'closing'
       };
@@ -270,7 +307,8 @@ export const DateWiseClosingComponent = React.memo(({
           wastage: existingItem.wastage || 0,
           returned: existingItem.returned || 0,
           transf_out: existingItem.transf_out || 0,
-          closing: newVal,
+          manufactureClosing: existingManufactureClosing,
+          closing: newTotalClosing,
           sold: calculatedSold,
           calculationMode: 'closing'
         }
@@ -298,12 +336,12 @@ export const DateWiseClosingComponent = React.memo(({
     }
   };
 
-  // Keyboard "Enter" navigator
-  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, rowIndex: number) => {
+  // Keyboard "Enter" navigator for 2D inputs
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, rowIndex: number, colIndex: number) => {
     if (e.key === 'Enter' || e.keyCode === 13) {
       e.preventDefault();
-      // Find the input element on the next row
-      const nextInput = document.querySelector(`input[data-row-idx="${rowIndex + 1}"]`) as HTMLInputElement;
+      // Find the input element on the next row, same column
+      const nextInput = document.querySelector(`input[data-row-idx="${rowIndex + 1}"][data-col-idx="${colIndex}"]`) as HTMLInputElement;
       if (nextInput) {
         nextInput.focus();
         try {
@@ -312,7 +350,7 @@ export const DateWiseClosingComponent = React.memo(({
         nextInput.scrollIntoView({ block: 'center', behavior: 'smooth' });
       } else {
         // Wrap around to first row if it reaches end
-        const firstInput = document.querySelector(`input[data-row-idx="0"]`) as HTMLInputElement;
+        const firstInput = document.querySelector(`input[data-row-idx="0"][data-col-idx="${colIndex}"]`) as HTMLInputElement;
         if (firstInput) {
           firstInput.focus();
           try {
@@ -501,22 +539,40 @@ export const DateWiseClosingComponent = React.memo(({
               <div className="overflow-x-auto flex-1">
                 <table ref={tableRef} className="w-full text-left border-collapse table-auto text-xs min-w-max">
                   <thead>
+                    {/* Row 1 */}
                     <tr className="bg-[#4F2C1D] text-white uppercase text-[9px] tracking-wider divide-x divide-white/5 font-black">
-                      <th className="p-4 text-center w-12 sticky left-0 z-10 bg-[#4F2C1D]">S.No</th>
-                      <th className="p-4 w-80 sticky left-12 z-10 bg-[#4F2C1D]">Item Name & Code</th>
-                      <th className="p-4 w-32 text-center bg-[#462619]">Opening Stock</th>
-                      <th className="p-4 w-32 text-center bg-[#462619]">Inward Today</th>
-                      <th className="p-4 w-32 text-center bg-[#462619]">Adjustments</th>
-                      <th className="p-4 w-40 text-center bg-brand-text border-x border-stone-800">Closing Stock (Count)</th>
-                      <th className="p-4 w-36 text-center bg-[#3a1d12]">Calculated Sales</th>
-                      <th className="p-4 text-center w-24">Status</th>
+                      <th className="p-4 text-center w-12 sticky left-0 z-10 bg-[#4F2C1D]" rowSpan={2}>S.No</th>
+                      <th className="p-4 w-80 sticky left-12 z-10 bg-[#4F2C1D]" style={{ minWidth: '320px' }}>ITEMS</th>
+                      <th className="p-2 text-center bg-[#B4C6E7] text-[#1F4E78] font-black text-xs italic tracking-wider uppercase border-b border-white/20" colSpan={5}>
+                        {outletName}
+                      </th>
+                      <th className="p-4 w-32 text-center bg-[#462619] border-x border-stone-800" rowSpan={2}>Total Closing</th>
+                      <th className="p-4 text-center w-24" rowSpan={2}>Status</th>
+                    </tr>
+                    {/* Row 2 */}
+                    <tr className="bg-[#4F2C1D] text-white uppercase text-[9px] tracking-wider divide-x divide-white/5 font-black">
+                      <th className="p-2 w-80 sticky left-12 z-10 bg-[#D46A43] text-white text-left font-extrabold" style={{ minWidth: '320px' }}>
+                        Manufacture date:-
+                      </th>
+                      {activeDates.map((d, colIdx) => (
+                        <th 
+                          key={d.dateStr} 
+                          className="p-2 w-24 text-center bg-[#8EA9DB] text-white font-black text-xs border border-white/10"
+                          title={formatDateLabel(d.dateStr)}
+                        >
+                          {d.dayLabel}
+                        </th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-stone-100 font-medium">
                     {filteredItems.map((item, idx) => {
                       const rowData = getRowData(item.id);
-                      const cellKey = `${currentDate}_${item.id}`;
-                      const status = saveStatus[cellKey] || 'idle';
+                      
+                      const isAnySaving = activeDates.some(d => saveStatus[`${currentDate}_${item.id}_${d.dateStr}`] === 'saving');
+                      const isAnyError = activeDates.some(d => saveStatus[`${currentDate}_${item.id}_${d.dateStr}`] === 'error');
+                      const isAnySaved = activeDates.some(d => saveStatus[`${currentDate}_${item.id}_${d.dateStr}`] === 'saved');
+                      const status = isAnySaving ? 'saving' : isAnyError ? 'error' : isAnySaved ? 'saved' : 'idle';
 
                       return (
                         <tr key={item.id} className="hover:bg-slate-50/80 transition-colors uppercase divide-x divide-stone-100">
@@ -540,66 +596,46 @@ export const DateWiseClosingComponent = React.memo(({
                             </div>
                           </td>
 
-                          {/* Opening Stock */}
-                          <td className="p-4 text-center font-mono text-stone-600 bg-stone-50/30 text-xs font-bold w-32">
-                            {rowData.opening}
-                          </td>
+                          {/* Manufacture-wise Closing Inputs */}
+                          {activeDates.map((d, colIdx) => {
+                            const cellKey = `${currentDate}_${item.id}_${d.dateStr}`;
+                            const subStatus = saveStatus[cellKey] || 'idle';
+                            const mVal = rowData.manufactureClosing[d.dateStr];
 
-                          {/* Today's Inward */}
-                          <td className="p-4 text-center font-mono text-stone-600 bg-stone-50/30 text-xs font-bold w-32">
-                            {rowData.inward > 0 ? (
-                              <span className="text-blue-600 font-extrabold">+{rowData.inward}</span>
-                            ) : (
-                              <span className="text-stone-400 font-semibold">-</span>
-                            )}
-                          </td>
+                            return (
+                              <td key={d.dateStr} className="p-2 text-center bg-[#D9E1F2]/10 w-24 border-x border-stone-100">
+                                <div className="flex flex-col items-center justify-center gap-1">
+                                  <input
+                                    type="text"
+                                    inputMode="numeric"
+                                    pattern="[0-9]*"
+                                    data-row-idx={idx}
+                                    data-col-idx={colIdx}
+                                    defaultValue={mVal === undefined ? '' : String(mVal)}
+                                    key={`${cellKey}_${mVal ?? 'none'}`}
+                                    onBlur={(e) => handleManufactureEdit(item.id, d.dateStr, e.target.value)}
+                                    onKeyDown={(e) => handleInputKeyDown(e, idx, colIdx)}
+                                    placeholder="0"
+                                    className={`w-16 h-8 text-center font-bold font-mono text-xs rounded border transition-all ${
+                                      mVal !== undefined && mVal > 0 
+                                        ? 'bg-blue-50 border-blue-400 text-blue-900 font-extrabold shadow-sm' 
+                                        : 'bg-white border-stone-200 text-stone-800 hover:border-stone-300 focus:border-[#8EA9DB] focus:ring-1 focus:ring-[#8EA9DB]/30'
+                                    }`}
+                                  />
+                                  {subStatus === 'saving' && (
+                                    <span className="text-[7px] font-bold text-amber-500 animate-pulse uppercase">Saving</span>
+                                  )}
+                                  {subStatus === 'error' && (
+                                    <span className="text-[7px] font-bold text-rose-500 uppercase">Err</span>
+                                  )}
+                                </div>
+                              </td>
+                            );
+                          })}
 
-                          {/* Total Adjustments */}
-                          <td className="p-4 text-center font-mono text-stone-600 bg-stone-50/30 text-xs font-bold w-32">
-                            {rowData.adjustments > 0 ? (
-                              <span className="text-amber-600 font-extrabold">-{rowData.adjustments}</span>
-                            ) : (
-                              <span className="text-stone-400 font-semibold">-</span>
-                            )}
-                          </td>
-
-                          {/* Closing Count Input */}
-                          <td className="p-3 text-center bg-stone-50/10 w-40 border-x border-stone-200">
-                            <div className="flex items-center justify-center gap-1.5">
-                              <input
-                                type="text"
-                                inputMode="numeric"
-                                pattern="[0-9]*"
-                                data-row-idx={idx}
-                                defaultValue={rowData.closing === undefined ? '' : String(rowData.closing)}
-                                key={`${cellKey}_${rowData.closing ?? 'none'}`}
-                                onBlur={(e) => handleCellEdit(item.id, e.target.value)}
-                                onKeyDown={(e) => handleInputKeyDown(e, idx)}
-                                placeholder="ENTER COUNT"
-                                className={`w-28 h-10 text-center font-black font-mono text-sm rounded-lg border-2 focus:outline-none transition-all shadow-sm ${rowData.closing !== undefined ? 'bg-[#4F2C1D]/5 border-[#4F2C1D] text-brand-text' : 'bg-white border-stone-200 text-stone-800 hover:border-stone-300 focus:border-brand-text focus:ring-2 focus:ring-[#4F2C1D]/20'}`}
-                              />
-                            </div>
-                          </td>
-
-                          {/* Sales Column */}
-                          <td className="p-4 text-center bg-[#FAF9F5] text-xs font-mono font-extrabold w-36">
-                            {rowData.closing !== undefined ? (
-                              rowData.sold > 0 ? (
-                                <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded font-black text-[11px]">
-                                  <TrendingUp size={11} className="text-emerald-600" />
-                                  {rowData.sold} SOLD
-                                </span>
-                              ) : rowData.sold === 0 ? (
-                                <span className="text-stone-400 font-bold text-[10px]">0 SOLD</span>
-                              ) : (
-                                <span className="inline-flex items-center gap-1 bg-rose-50 border border-rose-200 text-rose-800 px-2 py-1 rounded font-black text-[10px]" title="Closing is higher than available stock! Please re-verify.">
-                                  <AlertCircle size={10} className="text-rose-600" />
-                                  {rowData.sold} ERROR
-                                </span>
-                              )
-                            ) : (
-                              <span className="text-stone-300 italic text-[10px] uppercase font-bold tracking-wider">PENDING ENTRY</span>
-                            )}
+                          {/* Total Closing Count Display */}
+                          <td className="p-4 text-center font-mono text-brand-text text-xs font-black bg-stone-50/40 w-32 border-x border-stone-200">
+                            {activeDates.reduce((sum, d) => sum + Number(rowData.manufactureClosing[d.dateStr] ?? 0), 0)} pcs
                           </td>
 
                           {/* Save Status */}
@@ -639,7 +675,7 @@ export const DateWiseClosingComponent = React.memo(({
 
                     {filteredItems.length === 0 && (
                       <tr>
-                        <td colSpan={8} className="p-16 text-center font-bold text-stone-400 uppercase tracking-wider bg-stone-50/50">
+                        <td colSpan={9} className="p-16 text-center font-bold text-stone-400 uppercase tracking-wider bg-stone-50/50">
                           No matching catalog items found
                         </td>
                       </tr>
