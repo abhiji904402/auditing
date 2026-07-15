@@ -86,6 +86,7 @@ import {
 } from './lib/firebase';
 import { DateWiseClosingComponent } from './components/DateWiseClosingComponent';
 import { StockComparisonComponent } from './components/StockComparisonComponent';
+import { AIBulkReviewModal, ReviewRow } from './components/AIBulkReviewModal';
 import { 
   collection, 
   doc, 
@@ -1143,11 +1144,11 @@ const DashboardComponent = React.memo(({
       let closing = Number(rawData.closing ?? 0);
 
       if (Object.keys(rawData).length === 0) {
-        closing = opening + received + transf_in - testing - returned - transf_out;
+        closing = opening + received + transf_in - testing - returned - wastage - transf_out;
       } else if (mode === 'sold') {
-        closing = opening + received + transf_in - sold - testing - returned - transf_out;
+        closing = opening + received + transf_in - sold - testing - returned - wastage - transf_out;
       } else {
-        sold = (opening + received + transf_in) - (testing + returned + transf_out + closing);
+        sold = (opening + received + transf_in) - (testing + returned + wastage + transf_out + closing);
       }
 
       return [
@@ -1495,11 +1496,11 @@ const DashboardComponent = React.memo(({
 
             // If it's a fresh row with no data, calculate default closing
             if (Object.keys(rawData).length === 0) {
-              closing = opening + received + transf_in - testing - returned - transf_out;
+              closing = opening + received + transf_in - testing - returned - wastage - transf_out;
             } else if (mode === 'sold') {
-              closing = opening + received + transf_in - sold - testing - returned - transf_out;
+              closing = opening + received + transf_in - sold - testing - returned - wastage - transf_out;
             } else {
-              sold = (opening + received + transf_in) - (testing + returned + transf_out + closing);
+              sold = (opening + received + transf_in) - (testing + returned + wastage + transf_out + closing);
             }
 
             const data = {
@@ -3961,6 +3962,10 @@ export default function App() {
   const [unmatchedLines, setUnmatchedLines] = useState<DailyRecordInput[]>([]);
   const [showMismatchPopup, setShowMismatchPopup] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Refined Interactive Review Modal state
+  const [parsedReviewRows, setParsedReviewRows] = useState<ReviewRow[]>([]);
+  const [showReviewModal, setShowReviewModal] = useState(false);
 
   const [isDirty, setIsDirty] = useState(false);
   const [isProcessingAI, setIsProcessingAI] = useState(false);
@@ -4328,8 +4333,9 @@ export default function App() {
     const sold = Number(data.sold || 0);
     const testing = Number(data.testing || 0);
     const returned = Number(data.returned || 0);
+    const wastage = Number(data.wastage || 0);
     const transf_out = Number(data.transf_out || 0);
-    return opening + received + transf_in - sold - testing - returned - transf_out;
+    return opening + received + transf_in - sold - testing - returned - wastage - transf_out;
   }, []);
 
   const calculateSold = useCallback((data: Partial<DailyData>) => {
@@ -4339,8 +4345,9 @@ export default function App() {
     const closing = Number(data.closing || 0);
     const testing = Number(data.testing || 0);
     const returned = Number(data.returned || 0);
+    const wastage = Number(data.wastage || 0);
     const transf_out = Number(data.transf_out || 0);
-    return (opening + received + transf_in) - (testing + returned + transf_out + closing);
+    return (opening + received + transf_in) - (testing + returned + wastage + transf_out + closing);
   }, []);
 
   const handleOutletSelectForTransfer = useCallback((itemId: string, itemName: string, destOutletId: string) => {
@@ -5578,11 +5585,11 @@ export default function App() {
         let closing = Number(rawData.closing ?? 0);
 
         if (Object.keys(rawData).length === 0) {
-          closing = opening + received + transf_in - testing - returned - transf_out;
+          closing = opening + received + transf_in - testing - returned - wastage - transf_out;
         } else if (mode === 'sold') {
-          closing = opening + received + transf_in - sold - testing - returned - transf_out;
+          closing = opening + received + transf_in - sold - testing - returned - wastage - transf_out;
         } else {
-          sold = (opening + received + transf_in) - (testing + returned + transf_out + closing);
+          sold = (opening + received + transf_in) - (testing + returned + wastage + transf_out + closing);
         }
 
         // Update or initialize next day's record for this item
@@ -5869,11 +5876,25 @@ export default function App() {
         })
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.error || "Gemini AI server request failed");
+        let errorMsg = "Gemini AI server request failed";
+        try {
+          const contentType = response.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const errData = await response.json();
+            errorMsg = errData.error || errorMsg;
+          } else {
+            errorMsg = `Server returned status ${response.status}`;
+          }
+        } catch (_) {}
+        throw new Error(errorMsg);
       }
+
+      const resContentType = response.headers.get("content-type");
+      if (!resContentType || !resContentType.includes("application/json")) {
+        throw new Error("Server returned HTML instead of JSON database format.");
+      }
+      const data = await response.json();
 
       if (Array.isArray(data)) {
         finalExtractedData = data;
@@ -5881,48 +5902,61 @@ export default function App() {
         throw new Error("Gemini AI returned invalid data format");
       }
     } catch (error: any) {
-      console.error("Gemini AI bulk parsing failure:", error);
-      addNotification(`GEMINI AI ERROR: ${error.message || "Failed to process text"}`, "error");
-      setIsProcessingAI(false);
-      return;
+      console.warn("Gemini AI bulk parsing failure, safely falling back to local offline matcher:", error.message || error);
+      addNotification("Gemini AI busy or offline - safely fell back to smart offline parser!", "warning");
+      finalExtractedData = rawLines.map(line => parseAndMatchLine(line, activeItems));
     }
 
     try {
+      const mappedRows: ReviewRow[] = finalExtractedData.map((item: any, idx: number) => ({
+        id: `${Date.now()}-${idx}-${Math.random()}`,
+        originalText: item.originalText || '',
+        amount: item.amount || 1,
+        matchedItemId: item.matchedItemId || '',
+        isMatched: !!item.isMatched && !!item.matchedItemId,
+        include: true
+      }));
+
+      setParsedReviewRows(mappedRows);
+      setShowReviewModal(true);
+    } catch (error) {
+      console.error("Bulk entry parsing preview failure:", error);
+      addNotification("FAILED TO SETUP ENTRY REVIEW.", "error");
+    } finally {
+      setIsProcessingAI(false);
+    }
+  };
+
+  const handleApplyReviewedEntries = (finalRows: ReviewRow[]) => {
+    try {
       let processed = 0;
-      const errors: DailyRecordInput[] = [];
       const newRecords = { ...(records[currentDate]?.[selectedOutletId] || {}) };
       let hasChanges = false;
 
-      finalExtractedData.forEach((entry: any) => {
-        if (entry.isMatched && entry.matchedItemId) {
-          const matchedItem = items.find(i => i.id === entry.matchedItemId);
-          if (matchedItem) {
-            const currentData = newRecords[matchedItem.id] || {
-              opening: getPreviousClosing(matchedItem.id, currentDate, selectedOutletId),
-              received: 0,
-              sold: 0,
-              testing: 0,
-              returned: 0,
-              transf_out: 0,
-              transf_out_to: '',
-              closing: 0
-            };
+      finalRows.forEach((row) => {
+        const matchedItem = items.find(i => i.id === row.matchedItemId);
+        if (matchedItem) {
+          const currentData = newRecords[matchedItem.id] || {
+            opening: getPreviousClosing(matchedItem.id, currentDate, selectedOutletId),
+            received: 0,
+            sold: 0,
+            testing: 0,
+            returned: 0,
+            transf_out: 0,
+            transf_out_to: '',
+            closing: 0
+          };
+          
+          const amount = row.amount || 0;
+          const mode = bulkMode as keyof DailyData;
+          currentData[mode] = Math.max(0, bulkAction === 'add' 
+             ? (Number(currentData[mode] || 0) + amount) 
+             : amount) as any;
             
-            const amount = entry.amount || 0;
-            const mode = bulkMode as keyof DailyData;
-            currentData[mode] = Math.max(0, bulkAction === 'add' 
-               ? (Number(currentData[mode] || 0) + amount) 
-               : amount) as any;
-              
-            currentData.closing = calculateClosing(currentData);
-            newRecords[matchedItem.id] = currentData;
-            processed++;
-            hasChanges = true;
-          } else {
-            errors.push({ original: entry.originalText, amount: entry.amount });
-          }
-        } else {
-          errors.push({ original: entry.originalText, amount: entry.amount });
+          currentData.closing = calculateClosing(currentData);
+          newRecords[matchedItem.id] = currentData;
+          processed++;
+          hasChanges = true;
         }
       });
 
@@ -5936,18 +5970,12 @@ export default function App() {
         }
       }));
 
-      if (errors.length > 0) {
-        setUnmatchedLines(errors);
-        setShowMismatchPopup(true);
-      } else {
-        addNotification(`SUCCESS! PROCESSED ${processed} ITEMS`, 'success');
-        setBulkText('');
-      }
+      addNotification(`SUCCESS! APPLIED ${processed} ITEMS`, 'success');
+      setBulkText('');
+      setShowReviewModal(false);
     } catch (error) {
-      console.error("Bulk entry parsing master failure:", error);
+      console.error("Bulk entry apply master failure:", error);
       addNotification("FAILED TO MAP ITEMS. PLEASE CHECK TEXT FORMAT.", "error");
-    } finally {
-      setIsProcessingAI(false);
     }
   };
 
@@ -6152,6 +6180,20 @@ export default function App() {
         )}
 
         {/* Popups */}
+        {showReviewModal && (
+          <AIBulkReviewModal
+            isOpen={showReviewModal}
+            onClose={() => setShowReviewModal(false)}
+            items={items}
+            setItems={setItems}
+            parsedReviewRows={parsedReviewRows}
+            setParsedReviewRows={setParsedReviewRows}
+            onConfirm={handleApplyReviewedEntries}
+            bulkMode={bulkMode}
+            addNotification={addNotification}
+          />
+        )}
+
         {showMismatchPopup && (
           <MismatchModalComponent 
             items={items}

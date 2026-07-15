@@ -962,41 +962,59 @@ Each element of the JSON array MUST have exactly these fields:
 - "amount": numeric quantity/amount parsed
 - "isMatched": boolean`;
 
-      const result = await ai.models.generateContent({
-        model: "gemini-3.5-flash",
-        contents: [
-          { text: prompt },
-          { text: `Process these lines now:\n\n${lines.join('\n')}` }
-        ],
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              properties: {
-                originalText: { 
-                  type: Type.STRING,
-                  description: "The exact text of the input line processed"
-                },
-                matchedItemId: { 
-                  type: Type.STRING,
-                  description: "The official matched catalog item ID from the items list, or empty string if no confident match can be found."
-                },
-                amount: { 
-                  type: Type.INTEGER,
-                  description: "The quantity/number parsed from the input line. Defaults to 1 if not explicitly present."
-                },
-                isMatched: { 
-                  type: Type.BOOLEAN,
-                  description: "True if a confident catalog match was found, false otherwise."
+      let result;
+      let lastError: any = null;
+      const modelsToTry = ["gemini-2.5-flash", "gemini-3.1-flash-lite", "gemini-3.5-flash"];
+
+      for (const modelName of modelsToTry) {
+        try {
+          result = await ai.models.generateContent({
+            model: modelName,
+            contents: [
+              { text: prompt },
+              { text: `Process these lines now:\n\n${lines.join('\n')}` }
+            ],
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.ARRAY,
+                items: {
+                  type: Type.OBJECT,
+                  properties: {
+                    originalText: { 
+                      type: Type.STRING,
+                      description: "The exact text of the input line processed"
+                    },
+                    matchedItemId: { 
+                      type: Type.STRING,
+                      description: "The official matched catalog item ID from the items list, or empty string if no confident match can be found."
+                    },
+                    amount: { 
+                      type: Type.INTEGER,
+                      description: "The quantity/number parsed from the input line. Defaults to 1 if not explicitly present."
+                    },
+                    isMatched: { 
+                      type: Type.BOOLEAN,
+                      description: "True if a confident catalog match was found, false otherwise."
+                    }
+                  },
+                  required: ["originalText", "matchedItemId", "amount", "isMatched"]
                 }
-              },
-              required: ["originalText", "matchedItemId", "amount", "isMatched"]
+              }
             }
-          }
+          });
+
+          // If successful, break out of the loop
+          break;
+        } catch (err: any) {
+          lastError = err;
+          console.warn(`Attempt with ${modelName} failed. Error:`, err.message || err);
         }
-      });
+      }
+
+      if (!result) {
+        throw lastError || new Error("Failed to parse after trying multiple models and attempts");
+      }
 
       const responseText = result.text || "[]";
       const parsedResults = JSON.parse(responseText.trim());

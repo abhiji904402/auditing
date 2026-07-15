@@ -113,6 +113,7 @@ export const StockComparisonComponent = React.memo(({
         const sold = Number(outletRecord.sold ?? 0);
         const testing = Number(outletRecord.testing ?? 0);
         const returned = Number(outletRecord.returned ?? 0);
+        const wastage = Number(outletRecord.wastage ?? 0);
         const transf_out = Number(outletRecord.transf_out ?? 0);
         
         // 1. Physical Closing (date wise closing filled by bando)
@@ -122,7 +123,7 @@ export const StockComparisonComponent = React.memo(({
           : 0;
 
         // 2. Outlets Console Closing (expected closing calculated by system based on sales / sold logs)
-        const expectedClosing = opening + received + transf_in - sold - testing - returned - transf_out;
+        const expectedClosing = opening + received + transf_in - sold - testing - returned - wastage - transf_out;
 
         totalPhysicalClosing += physicalClosing;
         totalExpectedClosing += expectedClosing;
