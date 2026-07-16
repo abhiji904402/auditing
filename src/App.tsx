@@ -3842,7 +3842,7 @@ export default function App() {
   const [showPassField, setShowPassField] = useState(false);
   const [view, setView] = useState<View>('dashboard');
 
-  const [items, setItems] = useState<Item[]>(() => {
+  const [items, setItemsRaw] = useState<Item[]>(() => {
     const saved = localStorage.getItem('broomies_db_items');
     if (saved) {
       try {
@@ -3854,6 +3854,19 @@ export default function App() {
     }
     return INITIAL_ITEMS;
   });
+
+  const setItems = useCallback((value: Item[] | ((prev: Item[]) => Item[])) => {
+    setItemsRaw((prev) => {
+      const resolved = typeof value === 'function' ? value(prev) : value;
+      const seen = new Set<string>();
+      return resolved.filter(item => {
+        if (!item || !item.id) return false;
+        if (seen.has(item.id)) return false;
+        seen.add(item.id);
+        return true;
+      });
+    });
+  }, []);
   const [ingredients, setIngredients] = useState<Ingredient[]>(() => {
     const saved = localStorage.getItem('broomies_db_ingredients');
     if (saved) {
@@ -7392,7 +7405,7 @@ const SmartTransferComponent = React.memo(({ items, currentDate, handleDataChang
                         const styleMeta = getCakeBadges(cake.name);
                         return (
                           <motion.div 
-                            key={cake.itemId} 
+                            key={`${cake.itemId}-${idx}`} 
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             className={`p-3 border-2 border-brand-border rounded shadow-sm flex items-center justify-between transition-all ${styleMeta.bg}`}

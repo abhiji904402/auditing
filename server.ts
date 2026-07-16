@@ -964,7 +964,7 @@ Each element of the JSON array MUST have exactly these fields:
 
       let result;
       let lastError: any = null;
-      const modelsToTry = ["gemini-2.5-flash", "gemini-3.1-flash-lite", "gemini-3.5-flash"];
+      const modelsToTry = ["gemini-3.5-flash", "gemini-3.1-flash-lite"];
 
       for (const modelName of modelsToTry) {
         try {
