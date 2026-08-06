@@ -5437,11 +5437,11 @@ export default function App() {
         // Replace the opening stock with the previous day's closing stock
         currentData.opening = Number(prevClosing);
 
-        // Recalculate closing or sold based on mode
-        if (currentData.calculationMode === 'sold') {
-          currentData.closing = Number(currentData.opening) + Number(currentData.received) + Number(currentData.transf_in || 0) - Number(currentData.sold) - Number(currentData.testing) - Number(currentData.returned) - Number(currentData.transf_out);
+        // Recalculate closing or sold based on mode using global helper functions
+        if (currentData.calculationMode === 'closing') {
+          currentData.sold = calculateSold(currentData);
         } else {
-          currentData.sold = (Number(currentData.opening) + Number(currentData.received) + Number(currentData.transf_in || 0)) - (Number(currentData.testing) + Number(currentData.returned) + Number(currentData.transf_out) + Number(currentData.closing));
+          currentData.closing = calculateClosing(currentData);
         }
 
         outletRecords[item.id] = currentData;
@@ -5608,22 +5608,15 @@ export default function App() {
         // Update or initialize next day's record for this item
         const existingNextDayItem = nextDayRecs[item.id];
         if (existingNextDayItem) {
-          const updatedNextDayItem = { ...existingNextDayItem };
-          updatedNextDayItem.opening = closing;
+          const updatedNextDayItem = { 
+            ...existingNextDayItem,
+            opening: closing
+          };
 
-          const nextMode = updatedNextDayItem.calculationMode || 'sold';
-          const nextReceived = Number(updatedNextDayItem.received ?? 0);
-          const nextTransfIn = Number(updatedNextDayItem.transf_in ?? 0);
-          const nextTesting = Number(updatedNextDayItem.testing ?? 0);
-          const nextReturned = Number(updatedNextDayItem.returned ?? 0);
-          const nextTransfOut = Number(updatedNextDayItem.transf_out ?? 0);
-
-          if (nextMode === 'sold') {
-            const nextSold = Number(updatedNextDayItem.sold ?? 0);
-            updatedNextDayItem.closing = closing + nextReceived + nextTransfIn - nextSold - nextTesting - nextReturned - nextTransfOut;
+          if (updatedNextDayItem.calculationMode === 'closing') {
+            updatedNextDayItem.sold = calculateSold(updatedNextDayItem);
           } else {
-            const nextClosing = Number(updatedNextDayItem.closing ?? 0);
-            updatedNextDayItem.sold = (closing + nextReceived + nextTransfIn) - (nextTesting + nextReturned + nextTransfOut + nextClosing);
+            updatedNextDayItem.closing = calculateClosing(updatedNextDayItem);
           }
 
           nextDayRecs[item.id] = updatedNextDayItem;
